@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TaskanatorApp</string>
+    <string name="title_addActiveTask">Add to Active Tasks</string>
+    <string name="dog">Walk the Dog</string>
+    <string name="plants">Water the Plants</string>
+    <string name="movie">Watch a Movie</string>
+    <string name="button_addTask">Add to My Tasks!</string>
+    <string name="button_manageTask">Manage My Tasks!</string>
+    <string name="button_generateRandomTask">Generate Random Task!</string>
 </resources>
