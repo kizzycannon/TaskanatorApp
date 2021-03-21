@@ -10,7 +10,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/* Main Actvity */
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> testData = new ArrayList<>();
     ArrayAdapter<String> testAdapter;
