@@ -24,7 +24,7 @@
         style="@android:style/Widget.DeviceDefault.SeekBar"
         android:layout_width="328dp"
         android:layout_height="28dp"
-        android:max="60"
+        android:max="99"
         android:progress="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +74,9 @@
         android:layout_height="42dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/hint_minutes"
+        android:text="@string/hint_minutes"
         android:inputType="number"
+        android:maxLength="2"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewMinsGRT"
         app:layout_constraintStart_toStartOf="@+id/seekBarGRT" />
 
@@ -97,11 +98,29 @@
         android:layout_width="171dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
-        android:onClick="buttonGenerateRandomTask"
         android:text="@string/button_go"
         app:backgroundTint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerGRT" />
+
+    <TextView
+        android:id="@+id/textViewErrorMessageGRT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNeedToFillGRT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenerateRandomTaskTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

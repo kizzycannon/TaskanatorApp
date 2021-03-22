@@ -15,6 +15,7 @@
     <string name="info_mins">mins</string>
     <string name="hint_minutes">20</string>
     <array name="categories">
+        <item>All</item>
         <item>Leisure</item>
         <item>Sport</item>
         <item>Education</item>
@@ -48,5 +49,6 @@
     <string name="task_card_category_type">Category Task Type</string>
     <string name="task_card_task_description">Default Task Description</string>
     <string name="task_card_picture_desc">Default Picture Description</string>
+    <string name="categories">\@string/categories</string>
 
 </resources>
