@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 import java.util.ArrayList;
+import android.view.View.OnClickListener;
 
 public class GenerateRandomTask extends AppCompatActivity {
 
@@ -28,29 +30,87 @@ public class GenerateRandomTask extends AppCompatActivity {
     private Spinner spinner;
     private EditText durationInput;
     private TextView durationInputView;
+    private TextView errorView;
     private ArrayList<Task> taskList;
     private ArrayList<Task> activeTasks;
     private ArrayList<Task> tasksForRandom;
-    public static final String RANDOM_TASK_NAME = "com.example.taskanatorapp.RANDOMTASKNAME";
+    public static final String EXTRA_MESSAGE = "com.example.taskanatorapp.MESSAGE";
 
-    public GenerateRandomTask() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_random_task);
-
+        errorView = (TextView) findViewById(R.id.textViewErrorMessageGRT);
+        errorView.setText("");
         durationInput = (EditText) findViewById(R.id.editTextNumberGRT);
         durationInputView = (TextView) findViewById(R.id.editTextNumberGRT);
         categories = getResources().getStringArray(R.array.categories);
         System system = new System();
-        taskList = system.getAllTasks();
-        activeTasks = system.getActiveTasks();
+        random = new Random();
+
+        /** test data */
+        Task task1 = new Task("Task name 1", "Leisure", "description 1", 20);
+        Task task2 = new Task("Task name 2", "Sport", "description 2", 60);
+        Task task3 = new Task("Task name 3", "Other", "description 3", 10);
+        taskList = new ArrayList<>();
+        taskList.add(task1);
+        taskList.add(task2);
+        taskList.add(task3);
+        activeTasks = new ArrayList<>();
+        activeTasks.add(task1);
+        /** test data ^ */
+
+
+        //taskList = system.getAllTasks();
+        //activeTasks = system.getActiveTasks();
         tasksForRandom = new ArrayList<>();
 
         spinner = (Spinner) findViewById(R.id.spinnerGRT);
 
+        Button button = (Button) findViewById(R.id.buttonGoGRT);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(GenerateRandomTask.this, YourRandomTask.class);
+                duration = Integer.parseInt(durationInput.getText().toString());
+                tasksForRandom.clear();
+
+                if (durationInput == null || durationInput.getText().toString().equals("")) {
+                    errorView.setText("The duration must be set to something, either using the bar or the input text box.");
+                } else {
+                    if (taskList.isEmpty()) {
+                        errorView.setText("Error: the system task list is empty, cannot generate random task.");
+                    } else if (selectedCategory.contains("All")) {
+                        for (Task task : taskList) {
+                            if (task.getTaskLength() <= duration && !activeTasks.contains(task)) {
+                                tasksForRandom.add(task);
+                            }
+                        }
+                    } else {
+                        for (Task task : taskList) {
+                            if (task.getTaskCategory().contains(selectedCategory) && task.getTaskLength() <= duration && !activeTasks.contains(task)) {
+                                tasksForRandom.add(task);
+                            }
+                        }
+                    }
+                    if (tasksForRandom.isEmpty()) {
+                        errorView.setText("Error: all tasks available in the system with the desired category and duration are already in the active tasks list or don't exist.");
+                    } else {
+                        if (tasksForRandom.isEmpty()) {
+                            errorView.setText("Error: There are no available tasks to be randomly generated from.");
+                        } else {
+                            int randomIndex = random.nextInt(tasksForRandom.size());
+                            Task randomTask = tasksForRandom.get(randomIndex);
+                            String indexInSystemTasks = String.valueOf(taskList.indexOf(randomTask));
+                            String message = indexInSystemTasks;
+                            intent.putExtra(EXTRA_MESSAGE, message);
+                            startActivity(intent);
+                        }
+                    }
+                }
+            }
+        });
 
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, categories);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,7 +144,6 @@ public class GenerateRandomTask extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                //TODO Auto-generated method stub
             }
 
             @Override
@@ -94,12 +153,63 @@ public class GenerateRandomTask extends AppCompatActivity {
         });
     }
 
+
+    /**
+     * getter for duration of random task.
+     *
+     * @return the user's input desired max duration of a task.
+     */
+    public int getDuration() {
+        return duration;
+    }
+
+    /**
+     * getter for selected category of random task.
+     *
+     * @return the user's input desired category of a task.
+     */
+    public String getSelectedCategory() {
+        return selectedCategory;
+    }
+
+    /**
+     * getter for task list.
+     *
+     * @return the system task list.
+     */
+    public ArrayList<Task> getTaskList() {
+        return taskList;
+    }
+
+    /**
+     * getter for active task list.
+     *
+     * @return the active task list.
+     */
+    public ArrayList<Task> getActiveTasks() {
+        return activeTasks;
+    }
+
+    /**
+     * getter for list of tasks to be randomly generated from.
+     *
+     * @return the random task list from the chosen category and duration.
+     */
+    public ArrayList<Task> getTasksForRandom() {
+        return tasksForRandom;
+    }
+
+    /* delete later probably, seems to work in the onCreate above instead
     public void buttonGenerateRandomTask(View view) {
         Intent intent = new Intent(this, YourRandomTask.class);
         duration = Integer.parseInt(durationInput.getText().toString());
         tasksForRandom.clear();
 
-        if (selectedCategory.equals("All")) {
+        if (taskList.isEmpty()) {
+            errorView.setText("Error: the system task list is empty, cannot generate random task.");
+        }
+
+        else if (selectedCategory.contains("All")) {
             for(Task task : taskList) {
                 if(task.getTaskLength() <= duration && !activeTasks.contains(task)) {
                     tasksForRandom.add(task);
@@ -108,17 +218,26 @@ public class GenerateRandomTask extends AppCompatActivity {
         }
         else {
             for (Task task : taskList) {
-                if (task.getTaskCategory().equals(selectedCategory) && task.getTaskLength() <= duration && !activeTasks.contains(task)) {
+                if (task.getTaskCategory().contains(selectedCategory) && task.getTaskLength() <= duration && !activeTasks.contains(task)) {
                     tasksForRandom.add(task);
                 }
             }
         }
-
-        int randomIndex = random.nextInt(tasksForRandom.size());
-        Task randomTask = tasksForRandom.get(randomIndex);
-
-        //Spinner spinner = (Spinner) findViewById(R.id.spinnerGRT);
-        //category = spinner.get
-        startActivity(intent);
-    }
+        if (tasksForRandom.isEmpty()) {
+            errorView.setText("Error: all tasks available in the system are already in the active tasks list.");
+        }
+        else {
+            if (tasksForRandom.isEmpty()) {
+                errorView.setText("Error: There are no available tasks to be randomly generated from.");
+            }
+            else {
+                int randomIndex = random.nextInt(tasksForRandom.size());
+                Task randomTask = tasksForRandom.get(randomIndex);
+                String indexInSystemTasks = String.valueOf(taskList.indexOf(randomTask));
+                String message = indexInSystemTasks;
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        }
+    } */
 }
