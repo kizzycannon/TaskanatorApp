@@ -22,7 +22,7 @@ public class TheProgressBar {
     }
 
     // reset the progress bar to 0
-    public void resetrogressBar() {
+    public void resetProgressBar() {
         this.currentProgress = 0;
     }
 
