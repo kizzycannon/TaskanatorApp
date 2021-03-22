@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grey_bg_gradient"
     tools:context=".TaskDetails">
 
     <TextView
@@ -31,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TaskDetailsTaskName" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewNeedToFillGRT"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -40,6 +41,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
         android:text="@string/task_details_default_details"
         app:layout_constraintBottom_toTopOf="@+id/TaskDetailsCompleteTask"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +61,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNeedToFillGRT" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,11 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class AddToActiveTasks extends AppCompatActivity {
+    System system = (System)getApplicationContext(); //Tasks Persist?
+    ArrayList<Task> allTasks = system.getAllTasks(); //Tasks Persist?
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
