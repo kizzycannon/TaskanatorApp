@@ -24,8 +24,7 @@
         style="@android:style/Widget.DeviceDefault.SeekBar"
         android:layout_width="328dp"
         android:layout_height="28dp"
-        android:max="60"
-        android:onClick="updateFromSeekBar"
+        android:max="99"
         android:progress="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +76,7 @@
         android:ems="10"
         android:hint="@string/hint_minutes"
         android:inputType="number"
-        android:max="60"
+        android:maxLength="2"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewMinsGRT"
         app:layout_constraintStart_toStartOf="@+id/seekBarGRT" />
 
