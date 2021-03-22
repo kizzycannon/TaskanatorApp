@@ -8,7 +8,7 @@
     tools:context=".YourRandomTask">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewYourRandomTaskTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -20,20 +20,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonAcceptTaskYRT"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/button_accept_task"
         android:textColor="#FFFFFF"
         app:backgroundTint="@color/pink"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPickAgainYRT"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintStart_toStartOf="@+id/buttonPickAgainYRT"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskDetailsYRT" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonPickAgainYRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -43,25 +43,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAcceptTaskYRT"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewTaskNameYRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/info_task_name"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTaskDetailsYRT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTaskCategoryYRT" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewTaskDetailsYRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -69,23 +69,23 @@
         android:text="@string/info_task_details"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAcceptTaskYRT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskNameYRT" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewTaskCategoryYRT"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTaskNameYRT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewYourRandomTaskTitle"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
