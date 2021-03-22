@@ -20,20 +20,19 @@ public class System extends Application {
         return this.activeTasks;
     }
 
-    public void addToAllTasks(Task task){
-        this.allTasks.add(task);
-    }
-
     public void addToActiveTasks(Task task){
         this.activeTasks.add(task);
     }
 
-    public void removeFromAllTasks(Task task){
-        this.allTasks.remove(task);
+    public void removeFromAllTasks(int taskID){
+        this.allTasks.remove(taskID);
     }
 
-    public void removeFromActiveTasks(Task task){
-        this.activeTasks.remove(task);
+    public void removeFromActiveTasks(int taskID){
+        this.activeTasks.remove(taskID);
     }
 
+    public void createNewTask(String taskName, String taskCategory, String taskDescription, int taskLength){
+        this.allTasks.add(new Task(taskName, taskCategory, taskDescription, taskLength));
+    }
 }

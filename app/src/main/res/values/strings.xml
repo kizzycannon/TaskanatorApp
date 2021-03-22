@@ -31,6 +31,7 @@
     <string name="title_edit_progress_bar">Edit Progress Bar</string>
     <string name="task_name">Task Name</string>
     <string name="task_details">Task Details</string>
+
     <!--Manage Tasks Activity Strings-->
     <string name="back_to_active_tasks">Back to Active Tasks</string>
     <string name="add_new_task">+</string>
