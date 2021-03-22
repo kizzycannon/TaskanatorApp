@@ -19,6 +19,7 @@
         <item>Sport</item>
         <item>Education</item>
         <item>Home</item>
+        <item>Other</item>
     </array>
     <string name="button_go">Go!</string>
     <string name="info_task_name">Read a Book</string>
