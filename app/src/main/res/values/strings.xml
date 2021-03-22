@@ -11,12 +11,14 @@
     <string name="title_yourRandomTask">Your Random Task</string>
     <string name="info_I_need_to_fill">I need to fill:</string>
     <string name="info_category">Category</string>
+    <string name="title_active_tasks">Active Tasks</string>
     <string name="info_mins">mins</string>
     <string name="hint_minutes">20</string>
     <array name="categories">
-        <item>category 1</item>
-        <item>category 2</item>
-        <item>category 3</item>
+        <item>Leisure</item>
+        <item>Sport</item>
+        <item>Education</item>
+        <item>Home</item>
     </array>
     <string name="button_go">Go!</string>
     <string name="info_task_name">Read a Book</string>
