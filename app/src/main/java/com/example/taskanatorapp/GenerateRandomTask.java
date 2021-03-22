@@ -198,46 +198,4 @@ public class GenerateRandomTask extends AppCompatActivity {
     public ArrayList<Task> getTasksForRandom() {
         return tasksForRandom;
     }
-
-    /* delete later probably, seems to work in the onCreate above instead
-    public void buttonGenerateRandomTask(View view) {
-        Intent intent = new Intent(this, YourRandomTask.class);
-        duration = Integer.parseInt(durationInput.getText().toString());
-        tasksForRandom.clear();
-
-        if (taskList.isEmpty()) {
-            errorView.setText("Error: the system task list is empty, cannot generate random task.");
-        }
-
-        else if (selectedCategory.contains("All")) {
-            for(Task task : taskList) {
-                if(task.getTaskLength() <= duration && !activeTasks.contains(task)) {
-                    tasksForRandom.add(task);
-                }
-            }
-        }
-        else {
-            for (Task task : taskList) {
-                if (task.getTaskCategory().contains(selectedCategory) && task.getTaskLength() <= duration && !activeTasks.contains(task)) {
-                    tasksForRandom.add(task);
-                }
-            }
-        }
-        if (tasksForRandom.isEmpty()) {
-            errorView.setText("Error: all tasks available in the system are already in the active tasks list.");
-        }
-        else {
-            if (tasksForRandom.isEmpty()) {
-                errorView.setText("Error: There are no available tasks to be randomly generated from.");
-            }
-            else {
-                int randomIndex = random.nextInt(tasksForRandom.size());
-                Task randomTask = tasksForRandom.get(randomIndex);
-                String indexInSystemTasks = String.valueOf(taskList.indexOf(randomTask));
-                String message = indexInSystemTasks;
-                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);
-            }
-        }
-    } */
 }
