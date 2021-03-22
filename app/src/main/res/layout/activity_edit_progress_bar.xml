@@ -7,32 +7,47 @@
     android:background="@drawable/grey_bg_gradient"
     tools:context=".EditProgressBar">
 
-    <ProgressBar
-        android:id="@+id/progressBarPage"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="304dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="36dp"
-        android:endColor="#25db18"
-        android:startColor="#25db18"
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/title_edit_progress_bar"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editProgress"
         android:layout_width="292dp"
         android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="152dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter New Time"
+        android:inputType="textPersonName"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/saveChanges"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarPage" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBarPage"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/progressBarPage"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="304dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="27dp"
+        android:endColor="#25db18"
+        android:startColor="#25db18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <Button
         android:id="@+id/saveChanges"
