@@ -27,7 +27,7 @@ class ManageTasksAdapter extends
 
     @Override
     public int getItemCount(){
-        return system.getAllTasks().length(); //getAllTasks to be defined in Task Class.
+        return system.getAllTasks().size(); //getAllTasks to be defined in Task Class.
     }
 
     @Override
@@ -43,9 +43,9 @@ class ManageTasksAdapter extends
         TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
 
-        Task currentTask = system.getAllTasks().get(); //Pending addition of Task class
-        taskTitle.setText(currentTask.title);
-        taskCategory.setText(currentTask.category);
-        taskDescription.setText(currentTask.description);
+        Task currentTask = system.getAllTasks().get(position); //Pending addition of Task class
+        taskTitle.setText(currentTask.getTaskName());
+        taskCategory.setText(currentTask.getTaskCategory());
+        taskDescription.setText(currentTask.getTaskDescription());
     }
 }

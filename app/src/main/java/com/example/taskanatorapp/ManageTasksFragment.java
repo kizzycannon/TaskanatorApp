@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ManageTasksFragment extends Fragment {
 
+    System system;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         RecyclerView manageTasksRecycler = (RecyclerView)inflater.inflate(R.layout.fragment_manage_tasks, container, false);
