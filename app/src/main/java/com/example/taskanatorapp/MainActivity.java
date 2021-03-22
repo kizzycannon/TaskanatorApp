@@ -3,8 +3,10 @@ package com.example.taskanatorapp;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -26,5 +28,10 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.MyTasks);
         listView.setAdapter(testAdapter);
         listView.setBackground(this.getDrawable(R.drawable.list_view_border));
+    }
+
+    public void GoToAddTasks(View view){
+        Intent intent = new Intent(this, AddTask.class);
+        startActivity(intent);
     }
 }
