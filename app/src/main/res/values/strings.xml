@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">TaskanatorApp</string>
+    <string name="title_addActiveTask">Add to Active Tasks</string>
+    <string name="dog">Walk the Dog</string>
+    <string name="plants">Water the Plants</string>
+    <string name="movie">Watch a Movie</string>
+    <string name="button_addTask">Add to My Tasks!</string>
+    <string name="button_manageTask">Manage My Tasks!</string>
+    <string name="button_generateRandomTask">Generate Random Task!</string>
+    <string name="title_generateRandomTask">Generate Random Task</string>
+    <string name="title_yourRandomTask">Your Random Task</string>
+    <string name="info_I_need_to_fill">I need to fill:</string>
+    <string name="info_category">Category</string>
+    <string name="info_mins">mins</string>
+    <string name="hint_minutes">20</string>
+    <array name="categories">
+        <item>category 1</item>
+        <item>category 2</item>
+        <item>category 3</item>
+    </array>
+    <string name="button_go">Go!</string>
+    <string name="info_task_name">Read a Book</string>
+    <string name="info_task_details">Read Harry Potter and the Philosophers Stone.</string>
+    <string name="button_accept_task">Accept Task</string>
+    <string name="button_pick_again">No Thanks, Pick Again</string>
+
+    <!--Manage Tasks Activity Strings-->
+    <string name="back_to_active_tasks">Back to Active Tasks</string>
+    <string name="add_new_task">+</string>
+    <string name="manage_my_tasks">Manage My Tasks</string>
+
+    <!--Task Details Strings-->
+    <string name="task_details_default_task">Default Task</string>
+    <string name="task_details_header">Task Details:</string>
+    <string name="task_details_default_details">Default Task Details</string>
+    <string name="task_details_task_complete">Mark Task Complete!</string>
+
+    <!--Task Card Strings-->
+    <string name="task_card_task_name">Default Task Name</string>
+    <string name="task_card_category_type">Category Task Type</string>
+    <string name="task_card_task_description">Default Task Description</string>
+    <string name="task_card_picture_desc">Default Picture Description</string>
 </resources>
