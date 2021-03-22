@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskanatorApp">
-        <activity android:name=".EditProgressBar"></activity>
-        <activity android:name=".ListActivity" />
-        <activity android:name=".AddToActiveTasks" />
-        <activity android:name=".GenerateRandomTask" />
-        <activity android:name=".YourRandomTask" />
+        <activity android:name=".TaskDetails"></activity>
+        <activity android:name=".ManageTasks" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
