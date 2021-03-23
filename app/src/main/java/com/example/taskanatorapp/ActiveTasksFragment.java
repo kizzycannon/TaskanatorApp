@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ActiveTasksFragment extends Fragment {
+/*public class ActiveTasksFragment extends Fragment {
 
     System system;
 
@@ -26,4 +26,4 @@ public class ActiveTasksFragment extends Fragment {
         activeTasksRecycler.setLayoutManager(layoutManager);
         return activeTasksRecycler;
     }
-}
+}*/
