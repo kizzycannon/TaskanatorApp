@@ -49,21 +49,29 @@ public class GenerateRandomTask extends AppCompatActivity {
         System system = new System();
         random = new Random();
 
+
         /** test data */
         Task task1 = new Task("Task name 1", "Leisure", "description 1", 20);
         Task task2 = new Task("Task name 2", "Sport", "description 2", 60);
         Task task3 = new Task("Task name 3", "Other", "description 3", 10);
         taskList = new ArrayList<>();
-        taskList.add(task1);
-        taskList.add(task2);
-        taskList.add(task3);
+        system.createNewTask("Task name 1", "Leisure", "description 1", 20);
+        system.createNewTask("Task name 2", "Sport", "description 2", 60);
+        system.createNewTask("Task name 3", "Other", "description 3", 10);
+
+        //taskList.add(task1);
+        //taskList.add(task2);
+        //taskList.add(task3);
         activeTasks = new ArrayList<>();
-        activeTasks.add(task1);
+        system.addToActiveTasks(task1);
         /** test data ^ */
 
+        //taskList = MainActivity.getSystemTasks();
+        //activeTasks = MainActivity.getActiveTasks();
 
-        //taskList = system.getAllTasks();
-        //activeTasks = system.getActiveTasks();
+
+        taskList = system.getAllTasks();
+        activeTasks = system.getActiveTasks();
         tasksForRandom = new ArrayList<>();
 
         spinner = (Spinner) findViewById(R.id.spinnerGRT);

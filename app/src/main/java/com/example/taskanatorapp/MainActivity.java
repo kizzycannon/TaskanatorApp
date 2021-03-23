@@ -17,6 +17,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+  
     System system = new System();
     ActiveTasksAdapter adapter = new ActiveTasksAdapter(system.getActiveTasks());
     //System system = (System)getApplicationContext(); //Persisting Data - do not edit
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayout);
 
+
+        
         //Initiating Default Example Tasks
         system.createNewTask("Play Tennis", "Sport", "Play 5 games of Tennis", 20);
         system.createNewTask("Watch TV", "Leisure", "Watch an Episode of GOT", 60);
@@ -57,11 +60,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /** temp method for testing generate random task
+    /*temp method for testing generate random task */
     public void GoToGenerateRandomTask(View view){
         Intent intent = new Intent(this, GenerateRandomTask.class);
         startActivity(intent);
-    } */
-
-
+    }
 }

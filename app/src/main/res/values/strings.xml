@@ -18,8 +18,8 @@
         <item>All</item>
         <item>Leisure</item>
         <item>Sport</item>
-        <item>Education</item>
-        <item>Home</item>
+        <item>Studying</item>
+        <item>Chores</item>
         <item>Other</item>
     </array>
     <string name="button_go">Go!</string>
