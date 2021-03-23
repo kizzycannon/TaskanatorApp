@@ -1,9 +1,8 @@
 package com.example.taskanatorapp;
 
-import android.app.Application;
 import java.util.ArrayList;
 
-public class System extends Application {
+public class System {
     private ArrayList<Task> allTasks;
     private ArrayList<Task> activeTasks;
 
