@@ -86,17 +86,19 @@ public class YourRandomTask extends AppCompatActivity {
         buttonReroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //temporarily go back to generate random task activity
+                Intent goBack = new Intent(YourRandomTask.this, GenerateRandomTask.class);
+                startActivity(goBack);
+
                 //pick a new random task
 
+                /**
                 random = new Random();
                 int rerollIndex = random.nextInt(taskList.size());
                 while (rerollIndex == taskIndex) {
                     rerollIndex = random.nextInt(taskList.size());
                 }
-
-
-
-
+                 */
             }
         });
     }

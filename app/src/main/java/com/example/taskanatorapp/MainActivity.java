@@ -56,12 +56,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void GoToAddToActiveTasks(View view){
+        Intent intent = new Intent(this, AddToActiveTasks.class);
+        startActivity(intent);
+    }
 
-    /** temp method for testing generate random task
+
+    /** temp method for testing generate random task */
     public void GoToGenerateRandomTask(View view){
         Intent intent = new Intent(this, GenerateRandomTask.class);
         startActivity(intent);
-    } */
+    }
 
 
 }
