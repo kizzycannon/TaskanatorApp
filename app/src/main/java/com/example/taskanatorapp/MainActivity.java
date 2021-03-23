@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
         adapter = new ActiveTasksAdapter(system.getActiveTasks());
         recyclerView.setAdapter(adapter);
 
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
         system.addToActiveTasks(system.getAllTasks().get(0));
         system.addToActiveTasks(system.getAllTasks().get(1));
+        system.addToActiveTasks(system.getAllTasks().get(2));
+        system.addToActiveTasks(system.getAllTasks().get(3));
 
     }
 
