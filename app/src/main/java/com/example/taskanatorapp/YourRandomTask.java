@@ -52,7 +52,6 @@ public class YourRandomTask extends AppCompatActivity {
         system.addToActiveTasks(task1);
 
         /**sample test data ^ */
-
         //turn message into index to retrieve the task
         int taskIndex = Integer.parseInt(message);
 
