@@ -17,7 +17,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private System system;
-    private ActiveTasksAdapter adapter = new ActiveTasksAdapter(system.getActiveTasks());
+    private RecyclerView recyclerView;
+    private ActiveTasksAdapter adapter;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -25,15 +26,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        recyclerView = findViewById(R.id.ActiveTasks);
         system = PrefConfig.loadSystem(this);
         if (system == null){
             system = new System();
         }
-        
-        RecyclerView recyclerView = findViewById(R.id.ActiveTasks);
-        recyclerView.setAdapter(adapter);
+
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayout);
+        recyclerView.setAdapter(adapter);
+        adapter = new ActiveTasksAdapter(system.getActiveTasks());
+        recyclerView.setAdapter(adapter);
 
 
         
@@ -46,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
         //system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
         //system.addToActiveTasks(system.getAllTasks().get(0));
         //system.addToActiveTasks(system.getAllTasks().get(1));
-
-        adapter.notifyDataSetChanged();
 
     }
 
