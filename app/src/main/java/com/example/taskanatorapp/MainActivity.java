@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     //System system = (System)getApplicationContext(); //Persisting Data - do not edit
     //ArrayList<Task> activeTasks = system.getActiveTasks(); // Persisting Data - do not edit
 
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
