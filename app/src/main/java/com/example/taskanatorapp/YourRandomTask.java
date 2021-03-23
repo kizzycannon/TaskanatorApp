@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,6 +14,11 @@ import java.util.Random;
 public class YourRandomTask extends AppCompatActivity {
     private String taskName;
     private String taskDetails;
+    private Random random;
+
+    //need to have the input duration and category from before to reroll
+    private int duration;
+    private String category;
 
     /** test data fields */
     private ArrayList<Task> taskList;
@@ -62,5 +69,40 @@ public class YourRandomTask extends AppCompatActivity {
 
         //TextView textViewMessageTest = (TextView) findViewById(R.id.textViewTaskDetailsYRT);
         //textViewMessageTest.setText(message);
+
+        Button buttonAccept = (Button) findViewById(R.id.buttonAcceptTaskYRT);
+        Button buttonReroll = (Button) findViewById(R.id.buttonPickAgainYRT);
+
+        //when task is accepted
+        buttonAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //add to active task list
+                activeTasks.add(taskList.get(taskIndex));
+                //sends back to active task page
+                Intent intent = new Intent(YourRandomTask.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        //when task is rejected
+        buttonReroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //temporarily go back to generate random task activity
+                Intent goBack = new Intent(YourRandomTask.this, GenerateRandomTask.class);
+                startActivity(goBack);
+
+                //pick a new random task
+
+                /**
+                random = new Random();
+                int rerollIndex = random.nextInt(taskList.size());
+                while (rerollIndex == taskIndex) {
+                    rerollIndex = random.nextInt(taskList.size());
+                }
+                 */
+            }
+        });
     }
 }

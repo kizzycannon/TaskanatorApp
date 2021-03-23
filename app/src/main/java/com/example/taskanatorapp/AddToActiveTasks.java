@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class AddToActiveTasks extends AppCompatActivity {
+    //System system = (System)getApplicationContext(); //Tasks Persist?
+    //ArrayList<Task> allTasks = system.getAllTasks(); //Tasks Persist?
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,11 @@ public class AddToActiveTasks extends AppCompatActivity {
 
     public void buttonGenerateRandomTasksActivity(View view) {
         Intent intent = new Intent(this, GenerateRandomTask.class);
+        startActivity(intent);
+    }
+
+    public void buttonManageTasks(View view) {
+        Intent intent = new Intent(this, ManageTasks.class);
         startActivity(intent);
     }
 }
