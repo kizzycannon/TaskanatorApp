@@ -24,4 +24,9 @@ public class AddToActiveTasks extends AppCompatActivity {
         Intent intent = new Intent(this, GenerateRandomTask.class);
         startActivity(intent);
     }
+
+    public void buttonManageTasks(View view) {
+        Intent intent = new Intent(this, ManageTasks.class);
+        startActivity(intent);
+    }
 }

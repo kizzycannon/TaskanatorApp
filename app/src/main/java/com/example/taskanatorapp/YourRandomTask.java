@@ -79,6 +79,9 @@ public class YourRandomTask extends AppCompatActivity {
             public void onClick(View v) {
                 //add to active task list
                 activeTasks.add(taskList.get(taskIndex));
+                //sends back to active task page
+                Intent intent = new Intent(YourRandomTask.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });
