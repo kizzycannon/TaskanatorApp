@@ -32,18 +32,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 
-    <fragment
-        android:id="@+id/ActiveTasksRecyclerView"
-        android:name="com.example.taskanatorapp.ActiveTasksFragment"
-        android:layout_width="371dp"
-        android:layout_height="372dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ActiveTasks"
+        android:layout_width="372dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="248dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/AddTask"

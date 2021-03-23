@@ -7,9 +7,11 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.ViewHolder> {
 
-    private System system;
+    private ArrayList<Task> taskList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
@@ -19,13 +21,13 @@ public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.
             cardView = v;
         }
     }
-    public ActiveTasksAdapter(System system){
-        this.system = system;
+    public ActiveTasksAdapter(ArrayList<Task> taskList){
+        this.taskList = taskList;
     }
 
     @Override
     public int getItemCount(){
-        return system.getActiveTasks().size(); //getAllTasks to be defined in Task Class.
+        return taskList.size(); //getAllTasks to be defined in Task Class.
     }
 
     @Override
@@ -41,7 +43,7 @@ public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.
         TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
 
-        Task currentTask = system.getActiveTasks().get(position); //Pending addition of Task class
+        Task currentTask = taskList.get(position); //Pending addition of Task class
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
