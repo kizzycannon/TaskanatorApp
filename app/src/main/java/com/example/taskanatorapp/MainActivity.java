@@ -2,6 +2,8 @@ package com.example.taskanatorapp;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.widget.ProgressBar;
 import android.content.Intent;
 import android.os.Build;
@@ -13,9 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<String> testData = new ArrayList<>();
-    ArrayAdapter<String> testAdapter;
-    ListView listView;
+    System system = new System();
     //System system = (System)getApplicationContext(); //Persisting Data - do not edit
     //ArrayList<Task> activeTasks = system.getActiveTasks(); // Persisting Data - do not edit
 
@@ -24,15 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        testData.add("HELLO");
-        testData.add("WORLD");
-        testAdapter = new ArrayAdapter<String>(this, R.layout.activity_list, R.id.listText, testData);
-        listView = findViewById(R.id.MyTasks);
-        listView.setAdapter(testAdapter);
-        listView.setBackground(this.getDrawable(R.drawable.list_view_border));
 
 
-        /**
         //Initiating Default Example Tasks
         system.createNewTask("Play Tennis", "Sport", "Play 5 games of Tennis", 20);
         system.createNewTask("Watch TV", "Leisure", "Watch an Episode of GOT", 60);
@@ -42,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
         system.addToActiveTasks(system.getAllTasks().get(0));
         system.addToActiveTasks(system.getAllTasks().get(1));
-         */
     }
 
     public void GoToAddTasks(View view){
@@ -50,10 +42,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void GoToManageTasks(View view){
+        Intent intent = new Intent(this, ManageTasks.class);
+        startActivity(intent);
+    }
 
-    /*temp method for testing generate random task */
+
+    /** temp method for testing generate random task
     public void GoToGenerateRandomTask(View view){
         Intent intent = new Intent(this, GenerateRandomTask.class);
         startActivity(intent);
-    }
+    } */
+
+
 }
