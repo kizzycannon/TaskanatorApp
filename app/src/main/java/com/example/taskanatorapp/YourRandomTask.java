@@ -1,14 +1,18 @@
 package com.example.taskanatorapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class YourRandomTask extends AppCompatActivity {
@@ -24,6 +28,7 @@ public class YourRandomTask extends AppCompatActivity {
     TextView textViewTaskDetails;
     TextView textViewTaskName;
     TextView errorView;
+    ImageView categoryImage;
 
 
     /** test data fields */
@@ -32,6 +37,7 @@ public class YourRandomTask extends AppCompatActivity {
     private ArrayList<Task> tasksForRandom;
     /** test data fields ^ */
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,7 @@ public class YourRandomTask extends AppCompatActivity {
         textViewTaskDetails = (TextView) findViewById(R.id.textViewTaskDetailsYRT);
         textViewTaskName = (TextView) findViewById(R.id.textViewTaskNameYRT);
         errorView = (TextView) findViewById(R.id.textViewErrorYRT);
+        categoryImage = (ImageView) findViewById(R.id.imageViewTaskCategoryYRT);
         errorView.setText("");
         Intent intent = getIntent();
         ArrayList<String> randomGenerateInfo = intent.getStringArrayListExtra(GenerateRandomTask.EXTRA_MESSAGE);
@@ -48,25 +55,6 @@ public class YourRandomTask extends AppCompatActivity {
         category = randomGenerateInfo.get(1);
         taskIndex = Integer.parseInt(randomGenerateInfo.get(2));
         ArrayList<String> randomIndicesArray = intent.getStringArrayListExtra(GenerateRandomTask.INTEGER_ARRAY);
-
-
-        /** sample test data
-
-        System system = new System();
-
-        Task task1 = new Task("Task name 1", "Leisure", "description 1", 20);
-        Task task2 = new Task("Task name 2", "Sport", "description 2", 60);
-        Task task3 = new Task("Task name 3", "Other", "description 3", 10);
-        //taskList = new ArrayList<>();
-        system.createNewTask("Task name 1", "Leisure", "description 1", 20);
-        system.createNewTask("Task name 2", "Sport", "description 2", 60);
-        system.createNewTask("Task name 3", "Other", "description 3", 10);
-
-        activeTasks = system.getActiveTasks();
-        taskList = system.getAllTasks();
-        system.addToActiveTasks(task1);
-
-        /**sample test data ^ */
 
         activeTasks = system.getActiveTasks();
         taskList = system.getAllTasks();
@@ -83,6 +71,16 @@ public class YourRandomTask extends AppCompatActivity {
 
         textViewTaskDetails.setText(taskDetails);
         textViewTaskName.setText(taskName);
+        //in case All is selected obtain category from task selected
+        String taskCategory = randomTask.getTaskCategory();
+        //category images
+        String[] categoryNames = {"Chores", "Sport", "Leisure", "Studying", "Other"};
+        int[] images = {R.drawable.taskanator_icon___chores, R.drawable.taskanator_icon___sport, R.drawable.taskanator_icon___leisure, R.drawable.taskanator_icon___studying, R.drawable.taskanator_icon___other};
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < categoryNames.length; i++) {
+            hashMap.put(categoryNames[i], images[i]);
+        }
+        categoryImage.setImageDrawable(getDrawable(hashMap.get(taskCategory)));
 
         //TextView textViewMessageTest = (TextView) findViewById(R.id.textViewTaskDetailsYRT);
         //textViewMessageTest.setText(message);
@@ -100,8 +98,6 @@ public class YourRandomTask extends AppCompatActivity {
                 PrefConfig.saveSystem(YourRandomTask.this, system);
                 Intent intent = new Intent(YourRandomTask.this, MainActivity.class);
                 startActivity(intent);
-
-
             }
         });
         //when task is rejected
@@ -133,6 +129,8 @@ public class YourRandomTask extends AppCompatActivity {
                     Task newRandomTask = taskList.get(taskIndex);
                     textViewTaskDetails.setText(newRandomTask.getTaskDescription());
                     textViewTaskName.setText(newRandomTask.getTaskName());
+                    String newTaskCategory = newRandomTask.getTaskCategory();
+                    categoryImage.setImageDrawable(getDrawable(hashMap.get(newTaskCategory)));
                 }
             }
         });
