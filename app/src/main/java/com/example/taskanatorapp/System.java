@@ -3,20 +3,20 @@ package com.example.taskanatorapp;
 import java.util.ArrayList;
 
 public class System {
-    private static ArrayList<Task> allTasks;
-    private static ArrayList<Task> activeTasks;
+    private ArrayList<Task> allTasks;
+    private ArrayList<Task> activeTasks;
 
     public System(){
         this.allTasks = new ArrayList<Task>();
         this.activeTasks = new ArrayList<Task>();
     }
 
-    public static ArrayList<Task> getAllTasks(){
-        return allTasks;
+    public ArrayList<Task> getAllTasks(){
+        return this.allTasks;
     }
 
-    public static ArrayList<Task> getActiveTasks(){
-        return activeTasks;
+    public ArrayList<Task> getActiveTasks(){
+        return this.activeTasks;
     }
 
     public void addToActiveTasks(Task task){
