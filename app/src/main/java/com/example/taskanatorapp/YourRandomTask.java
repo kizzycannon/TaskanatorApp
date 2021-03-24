@@ -116,7 +116,7 @@ public class YourRandomTask extends AppCompatActivity {
                 int rerollIndex;
                 int newTaskIndex = 0;
                 if (randomIndicesArray.size() == 1) {
-                    errorView.setText("Only one task available to add to active tasks with the chosen criteria.");
+                    errorView.setText("Error: Only one task available to add to active tasks with the chosen criteria.");
                 }
                 else {
                     random = new Random();
