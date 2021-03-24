@@ -2,11 +2,11 @@ package com.example.taskanatorapp;
 
 import android.widget.ProgressBar;
 
-public class TheProgressBar {
+public class SystemProgressBar {
 
 
     //instance variables
-    private ProgressBar progressbar;
+    private android.widget.ProgressBar progressbar;
     private int progressCap = 120;
     private int currentProgress = 0;
 

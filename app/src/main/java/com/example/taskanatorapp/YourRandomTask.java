@@ -15,10 +15,13 @@ public class YourRandomTask extends AppCompatActivity {
     private String taskName;
     private String taskDetails;
     private Random random;
+    private System system;
 
     //need to have the input duration and category from before to reroll
     private int duration;
     private String category;
+    private int taskIndex;
+
 
     /** test data fields */
     private ArrayList<Task> taskList;
@@ -31,11 +34,16 @@ public class YourRandomTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_random_task);
 
+        system = PrefConfig.loadSystem(this);
+
         Intent intent = getIntent();
-        String message = intent.getStringExtra(GenerateRandomTask.EXTRA_MESSAGE);
+        ArrayList<String> randomGenerateInfo = intent.getStringArrayListExtra(GenerateRandomTask.EXTRA_MESSAGE);
+        duration = Integer.parseInt(randomGenerateInfo.get(0));
+        category = randomGenerateInfo.get(1);
+        taskIndex = Integer.parseInt(randomGenerateInfo.get(2));
 
 
-        /** sample test data */
+        /** sample test data
 
         System system = new System();
 
@@ -47,13 +55,17 @@ public class YourRandomTask extends AppCompatActivity {
         system.createNewTask("Task name 2", "Sport", "description 2", 60);
         system.createNewTask("Task name 3", "Other", "description 3", 10);
 
-        activeTasks = new ArrayList<>();
+        activeTasks = system.getActiveTasks();
         taskList = system.getAllTasks();
         system.addToActiveTasks(task1);
 
         /**sample test data ^ */
+
+        activeTasks = system.getActiveTasks();
+        taskList = system.getAllTasks();
+
         //turn message into index to retrieve the task
-        int taskIndex = Integer.parseInt(message);
+        //int taskIndex = Integer.parseInt(message);
 
         //ArrayList<Task> systemTasks = system.getAllTasks();
         //Task randomTask = systemTasks.get(taskIndex);

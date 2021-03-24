@@ -39,24 +39,29 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ActiveTasksAdapter(system.getActiveTasks());
         recyclerView.setAdapter(adapter);
 
+
+        //system.getAllTasks().clear(); //clear the system of the tasks
+        //system.getActiveTasks().clear();
+
         //Initiating Default Example Tasks
-        system.createNewTask("Play Tennis", "Sport", "Play 5 games of Tennis", 20);
-        system.createNewTask("Watch TV", "Leisure", "Watch an Episode of GOT", 60);
-        system.createNewTask("Water the Plants", "Chores", "Water the plants in the Kitchen", 5);
-        system.createNewTask("Walk the Dog", "Chores", "Take the Dog to the park!", 30);
-        system.createNewTask("Read a Book", "Leisure", "Read a chapter of Harry Potter!", 30);
-        system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
-        system.addToActiveTasks(system.getAllTasks().get(0));
-        system.addToActiveTasks(system.getAllTasks().get(1));
-        system.addToActiveTasks(system.getAllTasks().get(2));
-        system.addToActiveTasks(system.getAllTasks().get(3));
 
+        if (system.getAllTasks().size() == 0) {
+            system.createNewTask("Play Tennis", "Sport", "Play 5 games of Tennis", 20);
+            system.createNewTask("Watch TV", "Leisure", "Watch an Episode of GOT", 60);
+            system.createNewTask("Water the Plants", "Chores", "Water the plants in the Kitchen", 5);
+            system.createNewTask("Walk the Dog", "Chores", "Take the Dog to the park!", 30);
+            system.createNewTask("Read a Book", "Leisure", "Read a chapter of Harry Potter!", 30);
+            system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
+
+        }
+        // temporary initialisation of active tasks if none in system
+        if (system.getActiveTasks().size() == 0) {
+            system.addToActiveTasks(system.getAllTasks().get(0));
+            system.addToActiveTasks(system.getAllTasks().get(1));
+            system.addToActiveTasks(system.getAllTasks().get(2));
+            system.addToActiveTasks(system.getAllTasks().get(3));
+        }
         PrefConfig.saveSystem(this, system);
-    }
-
-    public void GoToAddTasks(View view){
-        Intent intent = new Intent(this, AddTask.class);
-        startActivity(intent);
     }
 
     public void GoToManageTasks(View view){
