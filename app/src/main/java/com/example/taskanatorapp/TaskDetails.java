@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class TaskDetails extends AppCompatActivity {
@@ -29,5 +31,20 @@ public class TaskDetails extends AppCompatActivity {
         taskNameView.setText(taskName);
         //taskCategoryView.setText(taskCategory);
         taskDescriptionView.setText(taskDescription);
+        Button buttonMarkComplete = (Button) findViewById(R.id.TaskDetailsCompleteTask);
+        buttonMarkComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // remove completed task from active task list
+                Intent backToMain = new Intent(TaskDetails.this, MainActivity.class);
+                int progressTime = system.getActiveTasks().get(taskID).getTaskLength();
+                system.getActiveTasks().remove(taskID);
+                PrefConfig.saveSystem(TaskDetails.this, system);
+                // update the progress bar
+                SystemProgressBar progressBar = new SystemProgressBar();
+                progressBar.addProgressPoints(progressTime);
+                startActivity(backToMain);
+            }
+        });
     }
 }
