@@ -1,6 +1,8 @@
 package com.example.taskanatorapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
@@ -42,7 +44,7 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
         TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
 
-        Task currentTask = allTasks.get(position); //Pending addition of Task class
+        Task currentTask = allTasks.get(position);
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());

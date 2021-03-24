@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class System {
     private ArrayList<Task> allTasks;
-    private ArrayList<Task> activeTasks;
+    private static ArrayList<Task> activeTasks;
 
     public System(){
         this.allTasks = new ArrayList<Task>();
@@ -15,8 +15,8 @@ public class System {
         return this.allTasks;
     }
 
-    public ArrayList<Task> getActiveTasks(){
-        return this.activeTasks;
+    public static ArrayList<Task> getActiveTasks(){
+        return activeTasks;
     }
 
     public void addToActiveTasks(Task task){
