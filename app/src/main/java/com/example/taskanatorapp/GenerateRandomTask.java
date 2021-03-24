@@ -41,6 +41,7 @@ public class GenerateRandomTask extends AppCompatActivity {
     private System system;
 
     public static final String EXTRA_MESSAGE = "com.example.taskanatorapp.MESSAGE";
+    public static final String INTEGER_ARRAY = "com.example.taskanatorapp.INTEGER_ARRAY";
 
 
     @Override
@@ -149,6 +150,13 @@ public class GenerateRandomTask extends AppCompatActivity {
                         intentArrayInfo.add(selectedCategory);
                         intentArrayInfo.add(indexInSystemTasks);
                         intent.putStringArrayListExtra(EXTRA_MESSAGE, intentArrayInfo);
+                        ArrayList<String> indexRandomArray = new ArrayList<>();
+                        //int indexInArray = 0;
+                        for (Task task : tasksForRandom) {
+                            String index = String.valueOf(taskList.indexOf(task));
+                            indexRandomArray.add(index);
+                        }
+                        intent.putStringArrayListExtra(INTEGER_ARRAY, indexRandomArray);
                         startActivity(intent);
                         }
                     }
