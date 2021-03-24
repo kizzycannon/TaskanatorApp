@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewNeedToFillGRT"
+        android:id="@+id/TaskDetailsTaskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
@@ -117,7 +117,7 @@
         android:text="TextView"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/textViewNeedToFillGRT"
+        app:layout_constraintBottom_toTopOf="@+id/TaskDetailsTaskDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
