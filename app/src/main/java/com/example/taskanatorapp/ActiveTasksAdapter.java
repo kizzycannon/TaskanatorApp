@@ -1,6 +1,8 @@
 package com.example.taskanatorapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -47,5 +49,14 @@ public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
+
+        cardView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(cardView.getContext(), TaskDetails.class);
+                intent.putExtra(TaskDetails.EXTRA_TASK_ID, position);
+                cardView.getContext().startActivity(intent);
+            }
+        });
     }
 }

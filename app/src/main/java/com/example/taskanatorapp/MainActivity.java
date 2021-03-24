@@ -4,7 +4,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.widget.ProgressBar;
 import android.content.Intent;
 import android.os.Build;
@@ -17,24 +16,29 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-  
-    System system = new System();
-    ActiveTasksAdapter adapter = new ActiveTasksAdapter(system.getActiveTasks());
-    //System system = (System)getApplicationContext(); //Persisting Data - do not edit
-    //ArrayList<Task> activeTasks = system.getActiveTasks(); // Persisting Data - do not edit
+
+    private System system;
+    private RecyclerView recyclerView;
+    private ActiveTasksAdapter adapter;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.ActiveTasks);
-        recyclerView.setAdapter(adapter);
+
+        recyclerView = findViewById(R.id.ActiveTasks);
+        system = PrefConfig.loadSystem(this);
+        if (system == null){
+            system = new System();
+        }
+
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayout);
+        adapter = new ActiveTasksAdapter(system.getActiveTasks());
+        recyclerView.setAdapter(adapter);
 
-
-        
         //Initiating Default Example Tasks
         system.createNewTask("Play Tennis", "Sport", "Play 5 games of Tennis", 20);
         system.createNewTask("Watch TV", "Leisure", "Watch an Episode of GOT", 60);
@@ -44,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
         system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
         system.addToActiveTasks(system.getAllTasks().get(0));
         system.addToActiveTasks(system.getAllTasks().get(1));
+        system.addToActiveTasks(system.getAllTasks().get(2));
+        system.addToActiveTasks(system.getAllTasks().get(3));
 
-        adapter.notifyDataSetChanged();
-
+        PrefConfig.saveSystem(this, system);
     }
 
     public void GoToAddTasks(View view){
@@ -59,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void GoToAddToActiveTasks(View view){
+        Intent intent = new Intent(this, AddToActiveTasks.class);
+        startActivity(intent);
+    }
 
     /*temp method for testing generate random task */
     public void GoToGenerateRandomTask(View view){

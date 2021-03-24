@@ -1,16 +1,17 @@
 package com.example.taskanatorapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-class ManageTasksAdapter extends
-        RecyclerView.Adapter<ManageTasksAdapter.ViewHolder>{
+public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.ViewHolder>{
 
-    private System system;
+    private ArrayList<Task> allTasks;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
@@ -21,13 +22,13 @@ class ManageTasksAdapter extends
         }
     }
 
-    public ManageTasksAdapter(System system){
-        this.system = system;
+    public ManageTasksAdapter(ArrayList<Task> allTasks){
+        this.allTasks = allTasks;
     }
 
     @Override
     public int getItemCount(){
-        return system.getAllTasks().size(); //getAllTasks to be defined in Task Class.
+        return allTasks.size(); //getAllTasks to be defined in Task Class.
     }
 
     @Override
@@ -37,13 +38,13 @@ class ManageTasksAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position){
+    public void onBindViewHolder(ManageTasksAdapter.ViewHolder holder, int position){
         CardView cardView = holder.cardView;
         TextView taskTitle = (TextView)cardView.findViewById(R.id.Task_Title);
         TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
 
-        Task currentTask = system.getAllTasks().get(position); //Pending addition of Task class
+        Task currentTask = allTasks.get(position);
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
