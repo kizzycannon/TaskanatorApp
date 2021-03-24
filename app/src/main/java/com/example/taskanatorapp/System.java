@@ -3,7 +3,7 @@ package com.example.taskanatorapp;
 import java.util.ArrayList;
 
 public class System {
-    private ArrayList<Task> allTasks;
+    private static ArrayList<Task> allTasks;
     private static ArrayList<Task> activeTasks;
 
     public System(){
@@ -11,8 +11,8 @@ public class System {
         this.activeTasks = new ArrayList<Task>();
     }
 
-    public ArrayList<Task> getAllTasks(){
-        return this.allTasks;
+    public static ArrayList<Task> getAllTasks(){
+        return allTasks;
     }
 
     public static ArrayList<Task> getActiveTasks(){
