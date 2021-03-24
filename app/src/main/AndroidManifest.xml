@@ -13,8 +13,14 @@
         <activity android:name=".EditProgressBar" />
         <activity android:name=".ListActivity" />
         <activity android:name=".AddToActiveTasks" />
-        <activity android:name=".GenerateRandomTask" />
-        <activity android:name=".YourRandomTask" />
+        <activity
+            android:name=".GenerateRandomTask"
+            android:parentActivityName=".AddToActiveTasks">
+        </activity>
+        <activity
+            android:name=".YourRandomTask"
+            android:parentActivityName=".GenerateRandomTask">
+        </activity>
         <activity android:name=".EditTask" />
         <activity android:name=".ManageTasks" />
         <activity
