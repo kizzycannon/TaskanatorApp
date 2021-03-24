@@ -64,11 +64,6 @@ public class MainActivity extends AppCompatActivity {
         PrefConfig.saveSystem(this, system);
     }
 
-    public void GoToAddTasks(View view){
-        Intent intent = new Intent(this, AddTask.class);
-        startActivity(intent);
-    }
-
     public void GoToManageTasks(View view){
         Intent intent = new Intent(this, ManageTasks.class);
         startActivity(intent);

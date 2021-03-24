@@ -11,7 +11,6 @@
         android:theme="@style/Theme.TaskanatorApp">
         <activity android:name=".AddTask"></activity>
         <activity android:name=".EditProgressBar" />
-        <activity android:name=".ListActivity" />
         <activity android:name=".AddToActiveTasks" />
         <activity
             android:name=".GenerateRandomTask"
