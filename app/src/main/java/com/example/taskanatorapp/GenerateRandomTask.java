@@ -36,6 +36,9 @@ public class GenerateRandomTask extends AppCompatActivity {
     private ArrayList<Task> taskList;
     private ArrayList<Task> activeTasks;
     private ArrayList<Task> tasksForRandom;
+
+    private System system;
+
     public static final String EXTRA_MESSAGE = "com.example.taskanatorapp.MESSAGE";
 
 
@@ -48,11 +51,13 @@ public class GenerateRandomTask extends AppCompatActivity {
         durationInput = (EditText) findViewById(R.id.editTextNumberGRT);
         durationInputView = (TextView) findViewById(R.id.editTextNumberGRT);
         categories = getResources().getStringArray(R.array.categories);
-        System system = new System();
+        //System system = new System();
         random = new Random();
 
+        system = PrefConfig.loadSystem(this);
 
-        /** test data */
+
+        /** test data
         Task task1 = new Task("Task name 1", "Leisure", "description 1", 20);
         Task task2 = new Task("Task name 2", "Sport", "description 2", 60);
         Task task3 = new Task("Task name 3", "Other", "description 3", 10);
@@ -64,9 +69,12 @@ public class GenerateRandomTask extends AppCompatActivity {
         //taskList.add(task1);
         //taskList.add(task2);
         //taskList.add(task3);
-        activeTasks = new ArrayList<>();
-        system.addToActiveTasks(task1);
+
+        //activeTasks = new ArrayList<>();
+        //system.addToActiveTasks(task1);
         /** test data ^ */
+
+        //activeTasks = system.getActiveTasks();
 
         //taskList = MainActivity.getSystemTasks();
         //activeTasks = MainActivity.getActiveTasks();
@@ -86,7 +94,7 @@ public class GenerateRandomTask extends AppCompatActivity {
                 duration = Integer.parseInt(durationInput.getText().toString());
                 tasksForRandom.clear();
 
-                if (durationInput == null || durationInput.getText().toString().equals("")) {
+                if (durationInput.getText() == null || durationInput.getText().length() == 0) {
                     errorView.setText("The duration must be set to something, either using the bar or the input text box.");
                 } else {
                     if (taskList.isEmpty()) {
@@ -113,8 +121,14 @@ public class GenerateRandomTask extends AppCompatActivity {
                             int randomIndex = random.nextInt(tasksForRandom.size());
                             Task randomTask = tasksForRandom.get(randomIndex);
                             String indexInSystemTasks = String.valueOf(taskList.indexOf(randomTask));
-                            String message = indexInSystemTasks;
-                            intent.putExtra(EXTRA_MESSAGE, message);
+                            //String message = indexInSystemTasks;
+
+                            //array of needed info in order: duration, selectedCategory, indexInSystemTasks
+                            ArrayList<String> intentArrayInfo = new ArrayList<>();
+                            intentArrayInfo.add(durationInput.getText().toString());
+                            intentArrayInfo.add(selectedCategory);
+                            intentArrayInfo.add(indexInSystemTasks);
+                            intent.putStringArrayListExtra(EXTRA_MESSAGE, intentArrayInfo);
                             startActivity(intent);
                         }
                     }
