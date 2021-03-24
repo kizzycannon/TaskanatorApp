@@ -36,6 +36,9 @@ public class GenerateRandomTask extends AppCompatActivity {
     private ArrayList<Task> taskList;
     private ArrayList<Task> activeTasks;
     private ArrayList<Task> tasksForRandom;
+
+    private System system;
+
     public static final String EXTRA_MESSAGE = "com.example.taskanatorapp.MESSAGE";
 
 
@@ -48,11 +51,13 @@ public class GenerateRandomTask extends AppCompatActivity {
         durationInput = (EditText) findViewById(R.id.editTextNumberGRT);
         durationInputView = (TextView) findViewById(R.id.editTextNumberGRT);
         categories = getResources().getStringArray(R.array.categories);
-        System system = new System();
+        //System system = new System();
         random = new Random();
 
+        system = PrefConfig.loadSystem(this);
 
-        /** test data */
+
+        /** test data
         Task task1 = new Task("Task name 1", "Leisure", "description 1", 20);
         Task task2 = new Task("Task name 2", "Sport", "description 2", 60);
         Task task3 = new Task("Task name 3", "Other", "description 3", 10);
@@ -64,9 +69,12 @@ public class GenerateRandomTask extends AppCompatActivity {
         //taskList.add(task1);
         //taskList.add(task2);
         //taskList.add(task3);
-        activeTasks = new ArrayList<>();
-        system.addToActiveTasks(task1);
+
+        //activeTasks = new ArrayList<>();
+        //system.addToActiveTasks(task1);
         /** test data ^ */
+
+        //activeTasks = system.getActiveTasks();
 
         //taskList = MainActivity.getSystemTasks();
         //activeTasks = MainActivity.getActiveTasks();
