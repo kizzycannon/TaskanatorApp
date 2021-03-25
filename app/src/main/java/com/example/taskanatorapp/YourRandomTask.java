@@ -29,6 +29,7 @@ public class YourRandomTask extends AppCompatActivity {
     TextView textViewTaskName;
     TextView errorView;
     TextView categoryName;
+    TextView textViewDuration;
     ImageView categoryImage;
 
 
@@ -47,10 +48,12 @@ public class YourRandomTask extends AppCompatActivity {
         system = PrefConfig.loadSystem(this);
         textViewTaskDetails = (TextView) findViewById(R.id.textViewTaskDetailsYRT);
         textViewTaskName = (TextView) findViewById(R.id.textViewTaskNameYRT);
+        textViewDuration = (TextView) findViewById(R.id.textViewDurationYRT);
         errorView = (TextView) findViewById(R.id.textViewErrorYRT);
         categoryImage = (ImageView) findViewById(R.id.imageViewTaskCategoryYRT);
         categoryName = (TextView) findViewById(R.id.textViewCategoryYRT);
         errorView.setText("");
+
         Intent intent = getIntent();
         ArrayList<String> randomGenerateInfo = intent.getStringArrayListExtra(GenerateRandomTask.EXTRA_MESSAGE);
         duration = Integer.parseInt(randomGenerateInfo.get(0));
@@ -60,17 +63,12 @@ public class YourRandomTask extends AppCompatActivity {
 
         activeTasks = system.getActiveTasks();
         taskList = system.getAllTasks();
-
-        //turn message into index to retrieve the task
-        //int taskIndex = Integer.parseInt(message);
-
+        textViewDuration.setText("Task Estimated Duration: " + taskList.get(taskIndex).getTaskLength() + " mins");
         //ArrayList<Task> systemTasks = system.getAllTasks();
         //Task randomTask = systemTasks.get(taskIndex);
         Task randomTask = taskList.get(taskIndex);
         taskName = randomTask.getTaskName();
         taskDetails = randomTask.getTaskDescription();
-
-
 
         textViewTaskDetails.setText(taskDetails);
         textViewTaskName.setText(taskName);
@@ -130,6 +128,7 @@ public class YourRandomTask extends AppCompatActivity {
                     String newTaskCategory = newRandomTask.getTaskCategory();
                     categoryName.setText("Category: " + newTaskCategory);
                     categoryImage.setImageDrawable(getDrawable(system.getIconID(newTaskCategory)));
+                    textViewDuration.setText("Task Estimated Duration: " + newRandomTask.getTaskLength() + " mins");
                 }
             }
         });
