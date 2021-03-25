@@ -75,7 +75,7 @@ public class YourRandomTask extends AppCompatActivity {
         String taskCategory = randomTask.getTaskCategory();
         //category images
         String[] categoryNames = {"Chores", "Sport", "Leisure", "Studying", "Other"};
-        int[] images = {R.drawable.taskanator_icon___chores, R.drawable.taskanator_icon___sport, R.drawable.taskanator_icon___leisure, R.drawable.taskanator_icon___studying, R.drawable.taskanator_icon___other};
+        int[] images = {R.drawable.taskanator_icon___chores__text_, R.drawable.taskanator_icon___sport__text_, R.drawable.taskanator_icon___leisure__text_, R.drawable.taskanator_icon___studying__text_, R.drawable.taskanator_icon___other__text_};
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < categoryNames.length; i++) {
             hashMap.put(categoryNames[i], images[i]);
@@ -87,6 +87,7 @@ public class YourRandomTask extends AppCompatActivity {
 
         Button buttonAccept = (Button) findViewById(R.id.buttonAcceptTaskYRT);
         Button buttonReroll = (Button) findViewById(R.id.buttonPickAgainYRT);
+        Button buttonBacktoMain = (Button) findViewById(R.id.buttonBackToMainYRT);
 
         //when task is accepted
         buttonAccept.setOnClickListener(new View.OnClickListener() {
@@ -114,8 +115,7 @@ public class YourRandomTask extends AppCompatActivity {
                 int newTaskIndex = 0;
                 if (randomIndicesArray.size() == 1) {
                     errorView.setText("Error: Only one task available to add to active tasks with the chosen criteria.");
-                }
-                else {
+                } else {
                     random = new Random();
 
                     boolean isNewIndex = false;
@@ -133,6 +133,14 @@ public class YourRandomTask extends AppCompatActivity {
                     String newTaskCategory = newRandomTask.getTaskCategory();
                     categoryImage.setImageDrawable(getDrawable(hashMap.get(newTaskCategory)));
                 }
+            }
+        });
+        //when user changes mind about adding to active tasks
+        buttonBacktoMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goBack = new Intent(YourRandomTask.this, MainActivity.class);
+                startActivity(goBack);
             }
         });
     }

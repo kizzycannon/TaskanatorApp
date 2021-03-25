@@ -48,28 +48,30 @@ public class EditTask extends AppCompatActivity {
         buttonAddTask.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                EditText taskNameView = (EditText) findViewById(R.id.editTaskName);
-                Spinner taskCategoryView = (Spinner)findViewById(R.id.editTaskCategory);
-                EditText taskDescriptionView = (EditText) findViewById(R.id.editTaskDescription);
-                EditText taskDurationView = (EditText) findViewById(R.id.editTaskDuration);
+                //EditText taskNameView = (EditText) findViewById(R.id.editTaskName);
+                //Spinner taskCategoryView = (Spinner)findViewById(R.id.editTaskCategory);
+               // EditText taskDescriptionView = (EditText) findViewById(R.id.editTaskDescription);
+                //EditText taskDurationView = (EditText) findViewById(R.id.editTaskDuration);
 
-                Task editingTask = system.getAllTasks().get(taskID);
-                editingTask.setTaskName(taskNameView.getText().toString());
-                editingTask.setTaskCategory(taskCategoryView.getSelectedItem().toString());
-                editingTask.setTaskDescription(taskDescriptionView.getText().toString());
-                editingTask.setTaskLength(Integer.parseInt(taskDurationView.getText().toString()));
+                //Task editingTask = system.getAllTasks().get(taskID);
+                //editingTask.setTaskName(taskNameView.getText().toString());
+                //editingTask.setTaskCategory(taskCategoryView.getSelectedItem().toString());
+                //editingTask.setTaskDescription(taskDescriptionView.getText().toString());
+                //editingTask.setTaskLength(Integer.parseInt(taskDurationView.getText().toString()));
 
 
                 ArrayList<Task> taskList = system.getAllTasks();
                 String newTaskName = taskNameView.getText().toString();
 
+                boolean canContinue = true;
                 for (Task task: taskList) {
-                    if(task.getTaskName().equals(taskName) && taskName != newTaskName){
+                    if(task.getTaskName().equals(newTaskName) && !taskName.equals(newTaskName)){
                         TextView taskNameTitle = (TextView)findViewById(R.id.editTaskNameTitle);
                         TextView taskCategoryTitle = (TextView)findViewById(R.id.editTaskNameCategory);
 
                         taskNameTitle.setText(R.string.add_edit_tasks_task_name_error);
                         taskCategoryTitle.setText(R.string.add_edit_tasks_task_category);
+                        canContinue = false;
                         return;
                     }
                 }
@@ -79,10 +81,21 @@ public class EditTask extends AppCompatActivity {
 
                     taskNameTitle.setText(R.string.add_edit_tasks_task_name);
                     taskCategoryTitle.setText(R.string.add_edit_tasks_task_category_error);
+                    canContinue = false;
                     return;
                 }
+                if (canContinue) {
+                    //update the task details with the user inputs
+                    Task editingTask = system.getAllTasks().get(taskID);
+                    editingTask.setTaskName(taskNameView.getText().toString());
+                    editingTask.setTaskCategory(taskCategoryView.getSelectedItem().toString());
+                    editingTask.setTaskDescription(taskDescriptionView.getText().toString());
+                    editingTask.setTaskLength(Integer.parseInt(taskDurationView.getText().toString()));
+                    PrefConfig.saveSystem(EditTask.this, system);
+                }
 
-                system.createNewTask(taskName, taskCategory, taskDescription, taskDuration);
+
+                //system.createNewTask(taskName, taskCategory, taskDescription, taskDuration);
 
                 PrefConfig.saveSystem(EditTask.this, system);
 

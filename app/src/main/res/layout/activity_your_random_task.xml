@@ -99,10 +99,21 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="16dp"
         android:text="TextView"
+        android:textColor="@color/red"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPickAgainYRT" />
+
+    <Button
+        android:id="@+id/buttonBackToMainYRT"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/button_back_to_active_tasks"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPickAgainYRT"
+        app:layout_constraintStart_toStartOf="@+id/buttonPickAgainYRT"
         app:layout_constraintTop_toBottomOf="@+id/buttonPickAgainYRT" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
