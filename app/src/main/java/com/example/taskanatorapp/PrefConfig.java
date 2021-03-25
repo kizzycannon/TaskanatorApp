@@ -48,7 +48,7 @@ public class PrefConfig {
         String jsonString = pref.getString(PROGRESS_KEY, "");
 
         Gson gson = new Gson();
-        Type type = new TypeToken<System>(){}.getType();
+        Type type = new TypeToken<SystemProgressBar>(){}.getType();
         SystemProgressBar progressBar = gson.fromJson(jsonString, type);
         return progressBar;
     }

@@ -44,8 +44,9 @@ public class TaskDetails extends AppCompatActivity {
                 system.getActiveTasks().remove(taskID);
                 PrefConfig.saveSystem(TaskDetails.this, system);
                 // update the progress bar
-                SystemProgressBar progressBar = new SystemProgressBar();
-                progressBar.addProgressPoints(progressTime);
+                //SystemProgressBar progressBar = new SystemProgressBar();
+                //progressBar.addProgressPoints(progressTime);
+                bar.addProgressPoints(progressTime);
                 PrefConfig.saveProgressBar(TaskDetails.this,bar);
                 startActivity(backToMain);
             }
