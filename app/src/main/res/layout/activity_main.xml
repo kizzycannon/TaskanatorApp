@@ -57,13 +57,16 @@
         android:id="@+id/progressText"
         android:layout_width="192dp"
         android:layout_height="31dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="16dp"
         android:text="1.5 hours to go"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ActiveTasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="133dp" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBarMain" />
 
     <Button
         android:id="@+id/button4"
@@ -87,9 +90,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="168dp"
         android:layout_height="46dp"
+        android:layout_marginTop="16dp"
         android:max="100"
         android:progress="20"
-        app:layout_constraintTop_toBottomOf="@+id/progressText"
-        tools:layout_editor_absoluteX="121dp" />
+        app:layout_constraintBottom_toTopOf="@+id/progressText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
