@@ -100,6 +100,7 @@ public class YourRandomTask extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         //when task is rejected
         buttonReroll.setOnClickListener(new View.OnClickListener() {
             @Override

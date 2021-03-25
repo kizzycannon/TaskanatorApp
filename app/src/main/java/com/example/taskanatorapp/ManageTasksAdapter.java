@@ -48,5 +48,14 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
+
+        cardView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(cardView.getContext(), EditTask.class);
+                intent.putExtra(TaskDetails.EXTRA_TASK_ID, position);
+                cardView.getContext().startActivity(intent);
+            }
+        });
     }
 }

@@ -21,7 +21,7 @@ public class TaskDetails extends AppCompatActivity {
 
         int taskID = (Integer)getIntent().getExtras().get(EXTRA_TASK_ID);
         String taskName = system.getActiveTasks().get(taskID).getTaskName();
-        //String taskCategory = System.getActiveTasks().get(taskID).getTaskCategory();
+        //String taskCategory = system.getActiveTasks().get(taskID).getTaskCategory();
         String taskDescription = system.getActiveTasks().get(taskID).getTaskDescription();
 
         TextView taskNameView = (TextView)findViewById(R.id.TaskDetailsTaskName);
@@ -31,6 +31,7 @@ public class TaskDetails extends AppCompatActivity {
         taskNameView.setText(taskName);
         //taskCategoryView.setText(taskCategory);
         taskDescriptionView.setText(taskDescription);
+
         Button buttonMarkComplete = (Button) findViewById(R.id.TaskDetailsCompleteTask);
         buttonMarkComplete.setOnClickListener(new View.OnClickListener() {
             @Override
