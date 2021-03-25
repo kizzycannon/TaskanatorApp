@@ -6,20 +6,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.ViewHolder>{
 
     private ArrayList<Task> allTasks;
+    private HashMap<String,Integer> iconHashMap;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
-
         public ViewHolder(CardView v){
             super(v);
             cardView = v;
+
         }
     }
 
@@ -50,7 +55,20 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
-        //imageView editor thing here
+
+        /**
+        //category images
+        String[] categoryNames = {"Chores", "Sport", "Leisure", "Studying", "Other"};
+        int[] images = {R.drawable.taskanator_icon___chores__text_, R.drawable.taskanator_icon___sport__text_,
+                R.drawable.taskanator_icon___leisure__text_, R.drawable.taskanator_icon___studying__text_, R.drawable.taskanator_icon___other__text_};
+
+        this.iconHashMap = new HashMap<>();
+        for (int i = 0; i < categoryNames.length; i++) {
+            iconHashMap.put(categoryNames[i], images[i]);
+        }
+
+        imageView.setImageDrawable(ContextCompat.getDrawable(iconHashMap.get(currentTask.getTaskCategory())));
+         */
 
         cardView.setOnClickListener(new View.OnClickListener(){
             @Override
