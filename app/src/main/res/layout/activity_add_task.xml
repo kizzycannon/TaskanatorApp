@@ -67,13 +67,13 @@
         android:layout_marginBottom="16dp"
         android:background="#FFFFFF"
         android:entries="@array/add_categories"
-        app:layout_constraintBottom_toTopOf="@+id/addTaskDescriptionTitle"
+        app:layout_constraintBottom_toTopOf="@+id/editTaskDescriptionTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/addTaskNameTitle"
         app:layout_constraintTop_toBottomOf="@+id/addTaskNameCategory" />
 
     <TextView
-        android:id="@+id/addTaskDescriptionTitle"
+        android:id="@+id/editTaskDescriptionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_edit_tasks_task_description"
@@ -92,13 +92,13 @@
         android:ems="10"
         android:hint="@string/hint_enter_details"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/addTaskDurationTitle"
+        app:layout_constraintBottom_toTopOf="@+id/editTaskDurationTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/addTaskNameTitle"
-        app:layout_constraintTop_toBottomOf="@+id/addTaskDescriptionTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editTaskDescriptionTitle" />
 
     <TextView
-        android:id="@+id/addTaskDurationTitle"
+        android:id="@+id/editTaskDurationTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_edit_tasks_task_duration"
@@ -121,7 +121,7 @@
         app:layout_constraintBottom_toTopOf="@+id/AddTaskAddToActiveTasksSwitch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/addTaskNameTitle"
-        app:layout_constraintTop_toBottomOf="@+id/addTaskDurationTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editTaskDurationTitle" />
 
     <Switch
         android:id="@+id/AddTaskAddToActiveTasksSwitch"

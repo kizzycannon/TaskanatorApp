@@ -33,8 +33,8 @@ public class AddTask extends AppCompatActivity {
 
                 TextView taskCategoryTitle = (TextView)findViewById(R.id.addTaskNameCategory);
                 TextView taskNameTitle = (TextView)findViewById(R.id.addTaskNameTitle);
-                TextView taskDescriptionTitle = (TextView) findViewById(R.id.addTaskDescriptionTitle);
-                TextView taskDurationTitle = (TextView) findViewById(R.id.addTaskDurationTitle);
+                TextView taskDescriptionTitle = (TextView) findViewById(R.id.editTaskDescriptionTitle);
+                TextView taskDurationTitle = (TextView) findViewById(R.id.editTaskDurationTitle);
                 EditText taskNameView = (EditText) findViewById(R.id.addNewTaskName);
                 Spinner taskCategoryView = (Spinner)findViewById(R.id.addTaskCategory);
                 EditText taskDescriptionView = (EditText) findViewById(R.id.addNewTaskDescription);
