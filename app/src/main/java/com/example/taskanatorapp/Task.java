@@ -13,6 +13,7 @@ public class Task {
     private String taskDescription;
     private int taskLength;
     private String taskNotes;
+    private boolean isSelected;
 
     public Task(String taskName, String taskCategory, String taskDescription, int taskLength){
         this.taskName = taskName;
@@ -56,5 +57,13 @@ public class Task {
 
     public void setTaskLength(int taskLength){
         this.taskLength = taskLength;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected (boolean selected){
+        isSelected = selected;
     }
 }
