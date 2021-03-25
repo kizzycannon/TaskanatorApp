@@ -60,6 +60,8 @@ public class AddToActiveTasks extends AppCompatActivity {
         for (Task item :selectedTasks) {
             system.addToActiveTasks(item);
         }
+
+        PrefConfig.saveSystem(this, system);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
