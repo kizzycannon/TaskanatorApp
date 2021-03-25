@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class PrefConfig {
 
     private static final String SYSTEM_KEY = "system_key";
+    private static final String PROGRESS_KEY = "progress_key";
 
     public static void saveSystem(Context context, System system){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
@@ -30,5 +31,25 @@ public class PrefConfig {
         Type type = new TypeToken<System>(){}.getType();
         System system = gson.fromJson(jsonString, type);
         return system;
+    }
+
+    public static void saveProgressBar(Context context, SystemProgressBar progressBar){
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = pref.edit();
+
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(progressBar);
+        editor.putString(PROGRESS_KEY, jsonString);
+        editor.apply();
+    }
+
+    public static SystemProgressBar loadProgressBar(Context context){
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        String jsonString = pref.getString(PROGRESS_KEY, "");
+
+        Gson gson = new Gson();
+        Type type = new TypeToken<System>(){}.getType();
+        SystemProgressBar progressBar = gson.fromJson(jsonString, type);
+        return progressBar;
     }
 }
