@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,11 +44,13 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
         TextView taskTitle = (TextView)cardView.findViewById(R.id.Task_Title);
         TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
+        ImageView imageView = (ImageView)cardView.findViewById(R.id.imageView);
 
         Task currentTask = allTasks.get(position);
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
+        //imageView editor thing here
 
         cardView.setOnClickListener(new View.OnClickListener(){
             @Override
