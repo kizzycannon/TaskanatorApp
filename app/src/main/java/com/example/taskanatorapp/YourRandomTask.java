@@ -28,6 +28,7 @@ public class YourRandomTask extends AppCompatActivity {
     TextView textViewTaskDetails;
     TextView textViewTaskName;
     TextView errorView;
+    TextView categoryName;
     ImageView categoryImage;
 
 
@@ -48,6 +49,7 @@ public class YourRandomTask extends AppCompatActivity {
         textViewTaskName = (TextView) findViewById(R.id.textViewTaskNameYRT);
         errorView = (TextView) findViewById(R.id.textViewErrorYRT);
         categoryImage = (ImageView) findViewById(R.id.imageViewTaskCategoryYRT);
+        categoryName = (TextView) findViewById(R.id.textViewCategoryYRT);
         errorView.setText("");
         Intent intent = getIntent();
         ArrayList<String> randomGenerateInfo = intent.getStringArrayListExtra(GenerateRandomTask.EXTRA_MESSAGE);
@@ -69,13 +71,14 @@ public class YourRandomTask extends AppCompatActivity {
         taskDetails = randomTask.getTaskDescription();
 
 
+
         textViewTaskDetails.setText(taskDetails);
         textViewTaskName.setText(taskName);
         //in case All is selected obtain category from task selected
         String taskCategory = randomTask.getTaskCategory();
         //category images
         categoryImage.setImageDrawable(getDrawable(system.getIconID(taskCategory)));
-
+        categoryName.setText("Category: " + taskCategory);
         //TextView textViewMessageTest = (TextView) findViewById(R.id.textViewTaskDetailsYRT);
         //textViewMessageTest.setText(message);
 
@@ -125,6 +128,7 @@ public class YourRandomTask extends AppCompatActivity {
                     textViewTaskDetails.setText(newRandomTask.getTaskDescription());
                     textViewTaskName.setText(newRandomTask.getTaskName());
                     String newTaskCategory = newRandomTask.getTaskCategory();
+                    categoryName.setText("Category: " + newTaskCategory);
                     categoryImage.setImageDrawable(getDrawable(system.getIconID(newTaskCategory)));
                 }
             }

@@ -50,9 +50,10 @@
         android:id="@+id/textViewTaskNameYRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/info_task_name"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewTaskDetailsYRT"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +78,8 @@
 
     <ImageView
         android:id="@+id/imageViewTaskCategoryYRT"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewTaskNameYRT"
@@ -115,5 +116,14 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonPickAgainYRT"
         app:layout_constraintStart_toStartOf="@+id/buttonPickAgainYRT"
         app:layout_constraintTop_toBottomOf="@+id/buttonPickAgainYRT" />
+
+    <TextView
+        android:id="@+id/textViewCategoryYRT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTaskCategoryYRT"
+        app:layout_constraintStart_toStartOf="@+id/imageViewTaskCategoryYRT"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTaskCategoryYRT" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
