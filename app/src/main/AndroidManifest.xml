@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskanatorApp">
-        <activity android:name=".AddTask"></activity>
+        <activity
+            android:name=".AddTask"
+            android:parentActivityName=".ManageTasks">
+        </activity>
         <activity android:name=".EditProgressBar" />
-        <activity android:name=".AddToActiveTasks" />
+        <activity
+            android:name=".AddToActiveTasks"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity
             android:name=".GenerateRandomTask"
             android:parentActivityName=".AddToActiveTasks">
@@ -24,7 +30,9 @@
             android:name=".EditTask"
             android:parentActivityName=".ManageTasks">
         </activity>
-        <activity android:name=".ManageTasks" />
+        <activity
+            android:name=".ManageTasks"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".TaskDetails"
             android:parentActivityName=".MainActivity">

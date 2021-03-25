@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,12 +42,12 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ManageTasksAdapter.ViewHolder holder, int position){
+    public void onBindViewHolder(ManageTasksAdapter.ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        TextView taskTitle = (TextView)cardView.findViewById(R.id.Task_Title);
-        TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
-        TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
-        ImageView imageView = (ImageView)cardView.findViewById(R.id.imageView);
+        TextView taskTitle = (TextView) cardView.findViewById(R.id.Task_Title);
+        TextView taskCategory = (TextView) cardView.findViewById(R.id.Task_Category);
+        TextView taskDescription = (TextView) cardView.findViewById(R.id.Task_Description);
+        ImageView imageView = (ImageView) cardView.findViewById(R.id.imageView);
 
         Task currentTask = allTasks.get(position);
         taskTitle.setText(currentTask.getTaskName());
