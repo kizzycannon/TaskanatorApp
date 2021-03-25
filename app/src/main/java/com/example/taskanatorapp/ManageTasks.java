@@ -21,16 +21,18 @@ public class ManageTasks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_tasks);
 
-        recyclerView = findViewById(R.id.ManageTasksrecyclerView);
         system = PrefConfig.loadSystem(this);
+        recyclerView = findViewById(R.id.ManageTasksrecyclerView);
+
         if (system == null){
             system = new System();
         }
 
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayout); //< CRASHING HERE
+        recyclerView.setLayoutManager(linearLayout);
         adapter = new ManageTasksAdapter(system.getAllTasks());
         recyclerView.setAdapter(adapter);
+        PrefConfig.saveSystem(this, system);
     }
 
     public void buttonActiveTasks(View view) {

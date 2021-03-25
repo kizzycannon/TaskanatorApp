@@ -20,7 +20,10 @@
             android:name=".YourRandomTask"
             android:parentActivityName=".GenerateRandomTask">
         </activity>
-        <activity android:name=".EditTask" />
+        <activity
+            android:name=".EditTask"
+            android:parentActivityName=".ManageTasks">
+        </activity>
         <activity android:name=".ManageTasks" />
         <activity
             android:name=".TaskDetails"

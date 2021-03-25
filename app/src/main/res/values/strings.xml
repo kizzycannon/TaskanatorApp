@@ -27,7 +27,8 @@
     <string name="info_task_details">Read Harry Potter and the Philosophers Stone.</string>
     <string name="button_accept_task">Accept Task</string>
     <string name="button_pick_again">No Thanks, Pick Again</string>
-    <string name="title_add_edit_task">Add/Edit Task</string>
+    <string name="title_add_task">Add New Task</string>
+    <string name="title_edit_task">Edit Task</string>
     <string name="title_edit_progress_bar">Edit Progress Bar</string>
     <string name="task_name">Task Name</string>
     <string name="task_details">Task Details</string>
@@ -40,7 +41,7 @@
 
     <!--Task Details Strings-->
     <string name="task_details_default_task">Default Task</string>
-    <string name="task_details_header">Task Details:</string>
+    <string name="task_details_header">Task Description:</string>
     <string name="task_details_default_details">Default Task Details</string>
     <string name="task_details_task_complete">Mark Task Complete!</string>
 
@@ -52,5 +53,26 @@
     <string name="categories">\@string/categories</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Add/Edit to Task Strings-->
+    <string name="add_edit_tasks_task_name">Task Name</string>
+    <string name="add_edit_tasks_task_name_error">Task Name - <font color="red">A task with this name already exists!</font></string>
+    <string name="add_edit_tasks_task_category">Task Category</string>
+    <string name="add_edit_tasks_task_category_error">Task Name - <font color="red">You must set a category for the task!</font></string>
+    <string name="add_edit_tasks_task_description">Task Description</string>
+    <string name="add_edit_tasks_task_duration">Task Duration</string>
+    <string name="edit_tasks_save_edits">Save Edits</string>
+    <string name="edit_tasks_delete_task">Delete Task</string>
+    <string name="add_tasks_add_new_task">Add New Task</string>
+    <string name="add_tasks_add_straight_to_active">Add Task to Active Tasks</string>
+
+    <array name="add_categories">
+        <item>Select Category</item>
+        <item>Leisure</item>
+        <item>Sport</item>
+        <item>Studying</item>
+        <item>Chores</item>
+        <item>Other</item>
+    </array>
 
 </resources>
