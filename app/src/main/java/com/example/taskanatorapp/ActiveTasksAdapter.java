@@ -1,12 +1,15 @@
 package com.example.taskanatorapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.ViewHolder> {
 
     private ArrayList<Task> taskList;
+    private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
@@ -35,6 +39,7 @@ public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.
     @Override
     public ActiveTasksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         CardView cv = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_manage_tasks, parent, false);
+        context = parent.getContext();
         return new ViewHolder(cv);
     }
 
@@ -44,8 +49,12 @@ public class ActiveTasksAdapter extends RecyclerView.Adapter<ActiveTasksAdapter.
         TextView taskTitle = (TextView)cardView.findViewById(R.id.Task_Title);
         TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
+        ImageView imageView = (ImageView)cardView.findViewById(R.id.imageView);
 
-        Task currentTask = taskList.get(position); //Pending addition of Task class
+        Task currentTask = taskList.get(position);
+        String taskCat = currentTask.getTaskCategory();
+        imageView.setImageDrawable(ContextCompat.getDrawable(context, System.getIconID(taskCat)));
+
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
