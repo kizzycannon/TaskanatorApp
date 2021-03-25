@@ -32,6 +32,7 @@ public class AddTask extends AppCompatActivity {
                 String taskCategory = null;
                 String taskDescription = null;
                 int taskDuration = 0;
+                ArrayList<Task> activeTaskList = system.getActiveTasks();
 
                 TextView taskCategoryTitle = (TextView)findViewById(R.id.addTaskNameCategory);
                 TextView taskNameTitle = (TextView)findViewById(R.id.addTaskNameTitle);
@@ -93,7 +94,8 @@ public class AddTask extends AppCompatActivity {
                 if(switchStatus){
                     //system.getActiveTasks().add(new Task(taskName, taskCategory, taskDescription, taskDuration));
                     int indexOfNew = (system.getAllTasks().size())-1;
-                    system.getActiveTasks().add(system.getAllTasks().get(indexOfNew));
+                    system.addToActiveTasks(system.getAllTasks().get(indexOfNew));
+
                 }
 
                 PrefConfig.saveSystem(AddTask.this, system);
