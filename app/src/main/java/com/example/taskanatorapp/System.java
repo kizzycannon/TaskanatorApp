@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class System {
     private ArrayList<Task> allTasks;
     private ArrayList<Task> activeTasks;
-    private HashMap<String,Integer> iconHashMap;
+    private static HashMap<String,Integer> iconHashMap;
 
     public System(){
         this.allTasks = new ArrayList<Task>();
@@ -17,7 +17,7 @@ public class System {
         int[] images = {R.drawable.taskanator_icon___chores__text_, R.drawable.taskanator_icon___sport__text_,
                 R.drawable.taskanator_icon___leisure__text_, R.drawable.taskanator_icon___studying__text_, R.drawable.taskanator_icon___other__text_};
 
-        this.iconHashMap = new HashMap<>();
+        iconHashMap = new HashMap<>();
         for (int i = 0; i < categoryNames.length; i++) {
             iconHashMap.put(categoryNames[i], images[i]);
         }
@@ -53,7 +53,7 @@ public class System {
      * @param imageName String of category name from the hashmap to be returned
      * @return int id of the category image
      */
-    public int getIconID(String imageName) {
+    public static int getIconID(String imageName) {
         return iconHashMap.get(imageName);
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.content.Context;
 
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
@@ -18,6 +19,7 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
 
     private ArrayList<Task> allTasks;
     private HashMap<String,Integer> iconHashMap;
+    private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
@@ -40,6 +42,7 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
     @Override
     public ManageTasksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         CardView cv = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_manage_tasks, parent, false);
+        context = parent.getContext();
         return new ViewHolder(cv);
     }
 
@@ -52,6 +55,10 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
         ImageView imageView = (ImageView)cardView.findViewById(R.id.imageView);
 
         Task currentTask = allTasks.get(position);
+        String taskCat = currentTask.getTaskCategory();
+        imageView.setImageDrawable(ContextCompat.getDrawable(context, System.getIconID(taskCat)));
+
+
         taskTitle.setText(currentTask.getTaskName());
         taskCategory.setText(currentTask.getTaskCategory());
         taskDescription.setText(currentTask.getTaskDescription());
