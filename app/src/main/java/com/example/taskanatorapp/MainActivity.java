@@ -36,10 +36,14 @@ public class MainActivity extends AppCompatActivity {
         progbar = (ProgressBar) findViewById(R.id.progressBarMain);
         progbar.setProgress(bar.returnCurrentProgress());
         progressText = (TextView) findViewById(R.id.progressText);
-        int progressToGo = bar.getProgressCap() - bar.returnCurrentProgress();
-        progressText.setText(progressToGo + " mins to go!");
-
-
+        int progressToGo;
+        if (bar.getProgressCap() - bar.returnCurrentProgress() > 0) {
+            progressToGo = bar.getProgressCap() - bar.returnCurrentProgress();
+            progressText.setText(progressToGo + " mins to go!");
+        }
+        else {
+            progressText.setText("Current Progress Goal Complete!");
+        }
         recyclerView = findViewById(R.id.ActiveTasks);
         system = PrefConfig.loadSystem(this);
         if (system == null){
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             system.addToActiveTasks(system.getAllTasks().get(3));
         }
         PrefConfig.saveSystem(this, system);
+        PrefConfig.saveProgressBar(this, bar);
     }
 
     public void goToManageTasks(View view){
