@@ -133,18 +133,13 @@ public class EditTask extends AppCompatActivity {
                 system.getAllTasks().remove(taskID);
 
                 ArrayList<Task> activeTaskList = system.getActiveTasks();
-                int taskPosition = 0;
+                //int taskPosition = 0;
 
                 for(Task task: activeTaskList){
-                    if(task.getTaskName().equals(taskName)){
+                    if(task.getTaskName().equals(taskName)) {
+                        activeTaskList.remove(task);
                         break;
-                    } else {
-                        taskPosition++;
                     }
-                }
-
-                if(taskPosition <= activeTaskList.size()-1){
-                    system.getActiveTasks().remove(taskID);
                 }
 
                 PrefConfig.saveSystem(EditTask.this, system);

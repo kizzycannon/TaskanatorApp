@@ -35,4 +35,8 @@ public class SystemProgressBar {
         this.currentProgress = input;
     }
 
+    public int getProgressCap() {
+        return progressCap;
+    }
+
 }

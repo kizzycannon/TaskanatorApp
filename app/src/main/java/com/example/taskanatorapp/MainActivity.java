@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ActiveTasksAdapter adapter;
     public SystemProgressBar bar;
     private ProgressBar progbar;
+    TextView progressText;
 
 
 
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         }
         progbar = (ProgressBar) findViewById(R.id.progressBarMain);
         progbar.setProgress(bar.returnCurrentProgress());
+        progressText = (TextView) findViewById(R.id.progressText);
+        int progressToGo = bar.getProgressCap() - bar.returnCurrentProgress();
+        progressText.setText(progressToGo + " mins to go!");
 
 
         recyclerView = findViewById(R.id.ActiveTasks);
