@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class EditProgressBar extends AppCompatActivity {
-private android.widget.ProgressBar progbar;
+public android.widget.ProgressBar progbar;
 private SystemProgressBar bar;
 private EditText newvalue;
 
@@ -17,6 +17,7 @@ private EditText newvalue;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_progress_bar);
+
         progbar = (android.widget.ProgressBar) findViewById(R.id.progressBarPage);
         newvalue = (EditText) findViewById(R.id.editProgress);
         progbar.setProgress(bar.returnCurrentProgress());
