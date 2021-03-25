@@ -68,15 +68,13 @@ public class MainActivity extends AppCompatActivity {
             system.createNewTask("Walk the Dog", "Chores", "Take the Dog to the park!", 30);
             system.createNewTask("Read a Book", "Leisure", "Read a chapter of Harry Potter!", 30);
             system.createNewTask("Work on Coursework", "Studying", "Work on CS991 Assignment", 60);
-
-        }
-        // temporary initialisation of active tasks if none in system
-        if (system.getActiveTasks().size() == 0) {
             system.addToActiveTasks(system.getAllTasks().get(0));
             system.addToActiveTasks(system.getAllTasks().get(1));
             system.addToActiveTasks(system.getAllTasks().get(2));
             system.addToActiveTasks(system.getAllTasks().get(3));
+
         }
+
         PrefConfig.saveSystem(this, system);
         PrefConfig.saveProgressBar(this, bar);
     }
