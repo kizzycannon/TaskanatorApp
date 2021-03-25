@@ -61,6 +61,7 @@ public class EditTask extends AppCompatActivity {
 
 
                 ArrayList<Task> taskList = system.getAllTasks();
+                ArrayList<Task> activeTaskList = system.getActiveTasks();
                 String newTaskName = taskNameView.getText().toString();
 
                 boolean canContinue = true;
@@ -91,6 +92,16 @@ public class EditTask extends AppCompatActivity {
                     editingTask.setTaskCategory(taskCategoryView.getSelectedItem().toString());
                     editingTask.setTaskDescription(taskDescriptionView.getText().toString());
                     editingTask.setTaskLength(Integer.parseInt(taskDurationView.getText().toString()));
+                    for (Task task : activeTaskList) {
+                        if (task.getTaskName().equals(taskName)) {
+                            task.setTaskName(taskNameView.getText().toString());
+                            task.setTaskCategory(taskCategoryView.getSelectedItem().toString());
+                            task.setTaskDescription(taskDescriptionView.getText().toString());
+                            task.setTaskLength(Integer.parseInt(taskDurationView.getText().toString()));
+                            break;
+                        }
+                    }
+
                     PrefConfig.saveSystem(EditTask.this, system);
                 }
 

@@ -70,6 +70,10 @@
     <string name="edit_tasks_delete_task">Delete Task</string>
     <string name="add_tasks_add_new_task">Add New Task</string>
     <string name="add_tasks_add_straight_to_active">Add Task to Active Tasks</string>
+    <string name="add_edit_tasks_task_name_empty_error">Task Name - <font color="red">You must input a name for the task!</font></string>
+    <string name="add_edit_tasks_task_description_empty_error">Task Name - <font color="red">You must input a description for the task!</font></string>
+    <string name="add_edit_tasks_task_duration_empty_error">Task Name - <font color="red">You must input a duration for the task!</font></string>
+    <string name="add_edit_tasks_task_error_null">Task Name - <font color="red">You must input something for all fields!</font></string>
 
     <array name="add_categories">
         <item>Select Category</item>
