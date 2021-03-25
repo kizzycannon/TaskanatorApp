@@ -64,19 +64,14 @@ public class MainActivity extends AppCompatActivity {
         PrefConfig.saveSystem(this, system);
     }
 
-    public void GoToManageTasks(View view){
+    public void goToManageTasks(View view){
         Intent intent = new Intent(this, ManageTasks.class);
         startActivity(intent);
     }
 
-    public void GoToAddToActiveTasks(View view){
+    public void goToAddToActiveTasks(View view){
         Intent intent = new Intent(this, AddToActiveTasks.class);
         startActivity(intent);
     }
 
-    /*temp method for testing generate random task */
-    public void GoToGenerateRandomTask(View view){
-        Intent intent = new Intent(this, GenerateRandomTask.class);
-        startActivity(intent);
-    }
 }
