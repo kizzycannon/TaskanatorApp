@@ -8,7 +8,7 @@ public class SystemProgressBar {
     //instance variables
     private android.widget.ProgressBar progressbar;
     private int progressCap = 120;
-    private int currentProgress = 0;
+    private int currentProgress = 10;
 
     //set the target productivity goal in minutes
     public void setProgressCap(int input) {

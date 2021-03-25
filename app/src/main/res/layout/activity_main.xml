@@ -19,18 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="191dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="16dp"
-        android:endColor="#25db18"
-        android:startColor="#25db18"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ActiveTasks"
@@ -69,14 +57,13 @@
         android:id="@+id/progressText"
         android:layout_width="192dp"
         android:layout_height="31dp"
-        android:layout_marginTop="16dp"
         android:text="1.5 hours to go"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        tools:layout_editor_absoluteY="133dp" />
 
     <Button
         android:id="@+id/button4"
@@ -94,5 +81,15 @@
         app:layout_constraintEnd_toStartOf="@+id/AddTask"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ActiveTasks" />
+
+    <ProgressBar
+        android:id="@+id/progressBarMain"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="168dp"
+        android:layout_height="46dp"
+        android:max="100"
+        android:progress="20"
+        app:layout_constraintTop_toBottomOf="@+id/progressText"
+        tools:layout_editor_absoluteX="121dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

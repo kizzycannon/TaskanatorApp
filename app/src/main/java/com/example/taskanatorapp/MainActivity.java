@@ -4,22 +4,21 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.widget.ProgressBar;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private System system;
     private RecyclerView recyclerView;
     private ActiveTasksAdapter adapter;
+    public SystemProgressBar bar;
+    private ProgressBar progbar;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -27,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bar = PrefConfig.loadProgressBar(this);
+        if (bar == null){
+            bar = new SystemProgressBar();
+        }
+        progbar = (ProgressBar) findViewById(R.id.progressBarMain);
+        progbar.setProgress(bar.returnCurrentProgress());
+
 
         recyclerView = findViewById(R.id.ActiveTasks);
         system = PrefConfig.loadSystem(this);

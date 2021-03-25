@@ -39,11 +39,14 @@ public class TaskDetails extends AppCompatActivity {
                 // remove completed task from active task list
                 Intent backToMain = new Intent(TaskDetails.this, MainActivity.class);
                 int progressTime = system.getActiveTasks().get(taskID).getTaskLength();
+                SystemProgressBar bar = PrefConfig.loadProgressBar(TaskDetails.this);
+                bar.addProgressPoints(progressTime);
                 system.getActiveTasks().remove(taskID);
                 PrefConfig.saveSystem(TaskDetails.this, system);
                 // update the progress bar
                 SystemProgressBar progressBar = new SystemProgressBar();
                 progressBar.addProgressPoints(progressTime);
+                PrefConfig.saveProgressBar(TaskDetails.this,bar);
                 startActivity(backToMain);
             }
         });
