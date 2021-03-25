@@ -15,7 +15,7 @@
     <string name="info_mins">mins</string>
     <string name="hint_minutes">20</string>
     <string name="hint_enter_details">Enter details</string>
-    <string name="hint_enter_duration">Enter duration (minutes)</string>
+    <string name="hint_enter_duration">Enter duration (minutes, max 99)</string>
     <string name="hint_enter_task_name">Enter Name</string>
     <!--Categories array for random generator page-->
     <array name="categories">
@@ -71,8 +71,8 @@
     <string name="add_tasks_add_new_task">Add New Task</string>
     <string name="add_tasks_add_straight_to_active">Add Task to Active Tasks</string>
     <string name="add_edit_tasks_task_name_empty_error">Task Name - <font color="red">You must input a name for the task!</font></string>
-    <string name="add_edit_tasks_task_description_empty_error">Task Name - <font color="red">You must input a description for the task!</font></string>
-    <string name="add_edit_tasks_task_duration_empty_error">Task Name - <font color="red">You must input a duration for the task!</font></string>
+    <string name="add_edit_tasks_task_description_empty_error">Task Description - <font color="red">You must input a description for the task!</font></string>
+    <string name="add_edit_tasks_task_duration_empty_error">Task Duration - <font color="red">You must input a duration for the task!</font></string>
     <string name="add_edit_tasks_task_error_null">Task Name - <font color="red">You must input something for all fields!</font></string>
 
     <array name="add_categories">
