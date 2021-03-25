@@ -50,7 +50,7 @@ public class EditTask extends AppCompatActivity {
             public void onClick(View v){
                 //EditText taskNameView = (EditText) findViewById(R.id.editTaskName);
                 //Spinner taskCategoryView = (Spinner)findViewById(R.id.editTaskCategory);
-               // EditText taskDescriptionView = (EditText) findViewById(R.id.editTaskDescription);
+                //EditText taskDescriptionView = (EditText) findViewById(R.id.editTaskDescription);
                 //EditText taskDurationView = (EditText) findViewById(R.id.editTaskDuration);
 
                 //Task editingTask = system.getAllTasks().get(taskID);
