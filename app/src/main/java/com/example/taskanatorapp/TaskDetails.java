@@ -40,7 +40,7 @@ public class TaskDetails extends AppCompatActivity {
                 Intent backToMain = new Intent(TaskDetails.this, MainActivity.class);
                 int progressTime = system.getActiveTasks().get(taskID).getTaskLength();
                 SystemProgressBar bar = PrefConfig.loadProgressBar(TaskDetails.this);
-                bar.addProgressPoints(progressTime);
+                //bar.addProgressPoints(progressTime);
                 system.getActiveTasks().remove(taskID);
                 PrefConfig.saveSystem(TaskDetails.this, system);
                 // update the progress bar

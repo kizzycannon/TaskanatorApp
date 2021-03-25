@@ -13,10 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AddToActiveTasks extends AppCompatActivity {
+public class AddToActiveTasks<adapter> extends AppCompatActivity {
     //System system = (System)getApplicationContext(); //Tasks Persist?
     //ArrayList<Task> allTasks = system.getAllTasks(); //Tasks Persist?
 
@@ -24,6 +25,7 @@ public class AddToActiveTasks extends AppCompatActivity {
     private System system;
     private AddToActiveTasksAdapter adapter;
     private ArrayList<Task> selectedTasks = new ArrayList<>();
+    private ArrayList<Task> availableTasks = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -38,7 +40,11 @@ public class AddToActiveTasks extends AppCompatActivity {
         }
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayout);
-        adapter = new AddToActiveTasksAdapter(system.getAllTasks(), new AddToActiveTasksAdapter.OnItemCheckListener() {
+
+        ArrayList<Task> allTasks = system.getAllTasks();
+        ArrayList<Task> activeTasks = system.getActiveTasks();
+
+        adapter = new AddToActiveTasksAdapter(availableTasks, new AddToActiveTasksAdapter.OnItemCheckListener() {
             @Override
             public void onItemCheck(Task item) {
                 selectedTasks.add(item);
@@ -50,22 +56,30 @@ public class AddToActiveTasks extends AppCompatActivity {
         });
         recyclerView.setAdapter(adapter);
 
-
+        for(Task task: allTasks) {
+            boolean isInActiveTasks = false;
+            for(Task taskActive: activeTasks) {
+                if (taskActive.getTaskName().equals(task.getTaskName()) && taskActive.getTaskCategory().equals(task.getTaskCategory())
+                        && taskActive.getTaskDescription().equals(task.getTaskDescription())) {
+                    isInActiveTasks = true;
+                    break;
+                }
+            }
+            if(!isInActiveTasks){
+                availableTasks.add(task);
+            }
+        }
     }
 
     public void buttonAddToActiveTasks(View view) {
-        /*
-        CheckBox taskCheck =  findViewById(R.id.addToActiveCheckBox);
-        TextView taskName = findViewById(R.id.Task_Title);*/
         for (Task item :selectedTasks) {
             system.addToActiveTasks(item);
         }
-
         PrefConfig.saveSystem(this, system);
+        Toast.makeText(AddToActiveTasks.this, "Task added", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 
     public void buttonGenerateRandomTasksActivity(View view) {
         Intent intent = new Intent(this, GenerateRandomTask.class);
