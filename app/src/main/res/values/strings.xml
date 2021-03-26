@@ -93,4 +93,12 @@
     <string name="button_back_to_main_CT">Back to Active Tasks</string>
     <string name="duration_title_CTD">Duration:</string>
 
+    <!-- Edit Progress Bar Strings -->
+    <string name="title_set_new_progress_goal">Set New Progress Goal:</string>
+    <string name="hint_edit_progress_bar_time">Enter Time (minutes)</string>
+
+    <string name="progress_bar_setting_icon_info">Progress
+        Bar
+        <b><font color="white">Settings</font></b></string>
+
 </resources>

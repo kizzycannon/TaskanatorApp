@@ -2,9 +2,13 @@ package com.example.taskanatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class EditProgressBar extends AppCompatActivity {
 public android.widget.ProgressBar progbar;
@@ -26,11 +30,24 @@ private EditText newvalue;
         progbar = (android.widget.ProgressBar) findViewById(R.id.progressBarPage);
         newvalue = (EditText) findViewById(R.id.editProgress);
         progbar.setProgress(bar.returnCurrentProgress());
+        progbar.setMax(bar.getProgressCap());
+        TextView currentCapView = (TextView) findViewById(R.id.textViewEditProgCurrentCap);
+        String currentCapText = "Current Progress Bar Goal: " + bar.getProgressCap() + " minutes";
+        currentCapView.setText(currentCapText);
     }
     public void saveChanges(View view) {
-        bar.setCurrentProgress(Integer.valueOf(String.valueOf(newvalue.getText())));
+        Intent backToMain = new Intent(this, MainActivity.class);
+        int currentProgress = bar.returnCurrentProgress();
+        bar.setProgressCap(Integer.valueOf(String.valueOf(newvalue.getText())));
+        if (currentProgress <= bar.returnCurrentProgress()) {
+            bar.setCurrentProgress(currentProgress);
+        }
+        else {
+            bar.setCurrentProgress(Integer.valueOf(String.valueOf(newvalue.getText())));
+        }
         progbar.setProgress(bar.returnCurrentProgress());
         PrefConfig.saveProgressBar(this, bar);
+        startActivity(backToMain);
     }
 
     public void resetBar (View view){

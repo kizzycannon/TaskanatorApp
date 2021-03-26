@@ -23,15 +23,16 @@
         android:id="@+id/editProgress"
         android:layout_width="292dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
         android:ems="10"
-        android:hint="Enter New Time"
-        android:inputType="textPersonName"
+        android:hint="@string/hint_edit_progress_bar_time"
+        android:inputType="number"
+        android:maxLength="4"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/saveChanges"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/progressBarPage"
+        app:layout_constraintStart_toStartOf="@+id/progressBarPage"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/saveChanges"
@@ -42,25 +43,53 @@
         app:layout_constraintBottom_toTopOf="@+id/resetProgress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.893" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/resetProgress"
         android:layout_width="155dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="184dp"
         android:onClick="resetBar"
         android:text="Reset Progress Bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveChanges" />
 
     <ProgressBar
         android:id="@+id/progressBarPage"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="169dp"
+        android:layout_width="329dp"
         android:layout_height="45dp"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="109dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/title_set_new_progress_goal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/editProgress"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarPage" />
+
+    <TextView
+        android:id="@+id/textViewEditProgCurrentCap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarPage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
