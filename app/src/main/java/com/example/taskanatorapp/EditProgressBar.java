@@ -39,16 +39,18 @@ private EditText newvalue;
     public void saveChanges(View view) {
         Intent backToMain = new Intent(this, MainActivity.class);
         int currentProgress = bar.returnCurrentProgress();
-        bar.setProgressCap(Integer.valueOf(String.valueOf(newvalue.getText())));
-        if (currentProgress <= bar.returnCurrentProgress()) {
-            bar.setCurrentProgress(currentProgress);
+        if (newvalue.getText() != null && !newvalue.getText().toString().equals("")) {
+            bar.setProgressCap(Integer.valueOf(String.valueOf(newvalue.getText())));
+            if (currentProgress <= bar.returnCurrentProgress()) {
+                bar.setCurrentProgress(currentProgress);
+            } else {
+                bar.setCurrentProgress(Integer.valueOf(String.valueOf(newvalue.getText())));
+            }
+            progbar.setProgress(bar.returnCurrentProgress());
+            PrefConfig.saveProgressBar(this, bar);
+            Toast.makeText(EditProgressBar.this, "Progress Bar updated", Toast.LENGTH_SHORT).show();
+
         }
-        else {
-            bar.setCurrentProgress(Integer.valueOf(String.valueOf(newvalue.getText())));
-        }
-        progbar.setProgress(bar.returnCurrentProgress());
-        PrefConfig.saveProgressBar(this, bar);
-        Toast.makeText(EditProgressBar.this, "Progress Bar updated", Toast.LENGTH_SHORT).show();
         startActivity(backToMain);
     }
 
