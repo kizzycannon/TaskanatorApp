@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public SystemProgressBar bar;
     private ProgressBar progbar;
     TextView progressText;
+    TextView progressCompletedText;
 
 
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         progbar.setProgress(bar.returnCurrentProgress());
         progbar.setMax(bar.getProgressCap());
         progressText = (TextView) findViewById(R.id.progressText);
+        progressCompletedText = (TextView) findViewById(R.id.textViewMainTimeCompleted);
         int progressToGo;
         if (bar.getProgressCap() - bar.returnCurrentProgress() > 0) {
             progressToGo = bar.getProgressCap() - bar.returnCurrentProgress();
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         else {
             progressText.setText("Current Progress Goal Complete!");
         }
+        String progressCompletedString = bar.returnCurrentProgress() + " mins already completed.";
+        progressCompletedText.setText(progressCompletedString);
         recyclerView = findViewById(R.id.ActiveTasks);
         system = PrefConfig.loadSystem(this);
         if (system == null){
