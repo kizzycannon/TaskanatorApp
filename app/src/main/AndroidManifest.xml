@@ -10,37 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskanatorApp">
         <activity
-            android:name=".AddTask"
-            android:parentActivityName=".ManageTasks">
-        </activity>
-        <activity android:name=".EditProgressBar" />
-        <activity
-            android:name=".AddToActiveTasks"
-            android:parentActivityName=".MainActivity">
+            android:name=".CompletedTaskDetails"
+            android:parentActivityName=".CompletedTasks">
         </activity>
         <activity
-            android:name=".GenerateRandomTask"
-            android:parentActivityName=".AddToActiveTasks">
-        </activity>
-        <activity
-            android:name=".YourRandomTask"
-            android:parentActivityName=".GenerateRandomTask">
-        </activity>
-        <activity
-            android:name=".EditTask"
-            android:parentActivityName=".ManageTasks">
-        </activity>
-        <activity
-            android:name=".ManageTasks"
+            android:name=".CompletedTasks"
             android:parentActivityName=".MainActivity"/>
         <activity
+            android:name=".AddTask"
+            android:parentActivityName=".ManageTasks" />
+        <activity
+            android:name=".EditProgressBar"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AddToActiveTasks"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GenerateRandomTask"
+            android:parentActivityName=".AddToActiveTasks" />
+        <activity
+            android:name=".YourRandomTask"
+            android:parentActivityName=".GenerateRandomTask" />
+        <activity
+            android:name=".EditTask"
+            android:parentActivityName=".ManageTasks" />
+        <activity
+            android:name=".ManageTasks"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".TaskDetails"
-            android:parentActivityName=".MainActivity">
-        </activity>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

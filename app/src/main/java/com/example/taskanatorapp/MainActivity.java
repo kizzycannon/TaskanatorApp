@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         }
         progbar = (ProgressBar) findViewById(R.id.progressBarMain);
         progbar.setProgress(bar.returnCurrentProgress());
+        progbar.setMax(bar.getProgressCap());
         progressText = (TextView) findViewById(R.id.progressText);
         int progressToGo;
         if (bar.getProgressCap() - bar.returnCurrentProgress() > 0) {
@@ -86,6 +87,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToAddToActiveTasks(View view){
         Intent intent = new Intent(this, AddToActiveTasks.class);
+        startActivity(intent);
+    }
+
+    public void goToAddToCompletedTasks(View view){
+        Intent intent = new Intent(this, CompletedTasks.class);
+        startActivity(intent);
+    }
+
+    public void goToEditProgressBar(View view){
+        Intent intent = new Intent(this, EditProgressBar.class);
         startActivity(intent);
     }
 

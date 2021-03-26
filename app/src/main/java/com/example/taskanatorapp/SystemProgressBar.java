@@ -10,9 +10,12 @@ public class SystemProgressBar {
     private int progressCap = 120;
     private int currentProgress = 10;
 
+    public SystemProgressBar() {
+
+    }
+
     //set the target productivity goal in minutes
-    public void setProgressCap(int input) {
-        this.progressCap = input;
+    public void setProgressCap(int input) { this.progressCap = input;;
     }
 
     // add progress points to the progress bar in minutes
