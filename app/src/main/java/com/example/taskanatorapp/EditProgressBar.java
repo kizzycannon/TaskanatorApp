@@ -29,8 +29,8 @@ private EditText newvalue;
 
         progbar = (android.widget.ProgressBar) findViewById(R.id.progressBarPage);
         newvalue = (EditText) findViewById(R.id.editProgress);
-        progbar.setProgress(bar.returnCurrentProgress());
         progbar.setMax(bar.getProgressCap());
+        progbar.setProgress(bar.returnCurrentProgress());
         TextView currentCapView = (TextView) findViewById(R.id.textViewEditProgCurrentCap);
         String currentCapText = "Current Progress Bar Goal: " + bar.getProgressCap() + " minutes";
         currentCapView.setText(currentCapText);
