@@ -36,9 +36,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressText" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/AddTask"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -47,7 +47,10 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="goToAddToActiveTasks"
-        android:text="Add"
+        android:src="@drawable/ic_baseline_add"
+        app:tint="@android:color/white"
+        app:maxImageSize="32dp"
+        app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button4"
