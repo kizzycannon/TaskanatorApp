@@ -91,5 +91,6 @@
     <string name="completed_task_title">Completed Tasks</string>
     <string name="button_Clear_Completed_Tasks">Clear Completed Task List</string>
     <string name="button_back_to_main_CT">Back to Active Tasks</string>
+    <string name="duration_title_CTD">Duration:</string>
 
 </resources>

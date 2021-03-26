@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/task_details_duration"
+        android:text="@string/duration_title_CTD"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewTaskDurationCTD"
         app:layout_constraintStart_toStartOf="@+id/textViewTaskDurationCTD"
