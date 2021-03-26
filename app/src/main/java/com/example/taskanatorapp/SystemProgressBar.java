@@ -20,8 +20,12 @@ public class SystemProgressBar {
 
     // add progress points to the progress bar in minutes
     public void addProgressPoints(int input) {
-        this.currentProgress += input;
-
+        if (this.currentProgress + input <= progressCap) {
+            this.currentProgress += input;
+        }
+        else {
+            this.currentProgress = progressCap;
+        }
     }
 
     // reset the progress bar to 0
