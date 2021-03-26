@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,6 +93,7 @@ public class YourRandomTask extends AppCompatActivity {
                 activeTasks.add(taskList.get(taskIndex));
                 //sends back to active task page
                 PrefConfig.saveSystem(YourRandomTask.this, system);
+                Toast.makeText(YourRandomTask.this, "Task added", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(YourRandomTask.this, MainActivity.class);
                 startActivity(intent);
             }
