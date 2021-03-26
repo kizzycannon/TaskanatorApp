@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -92,6 +93,7 @@ public class AddTask extends AppCompatActivity {
                     system.addToActiveTasks(system.getAllTasks().get(indexOfNew));
                 }
                 PrefConfig.saveSystem(AddTask.this, system);
+                Toast.makeText(AddTask.this, "Task added", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AddTask.this, ManageTasks.class);
                 startActivity(intent);
             }

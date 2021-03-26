@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -121,6 +122,7 @@ public class EditTask extends AppCompatActivity {
                 }
 
                 PrefConfig.saveSystem(EditTask.this, system);
+                Toast.makeText(EditTask.this, "Changes updated", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(EditTask.this, ManageTasks.class);
                 startActivity(intent);
@@ -143,6 +145,7 @@ public class EditTask extends AppCompatActivity {
                 }
 
                 PrefConfig.saveSystem(EditTask.this, system);
+                Toast.makeText(EditTask.this, "Task deleted", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(EditTask.this, ManageTasks.class);
                 startActivity(intent);

@@ -76,7 +76,7 @@ public class AddToActiveTasks<adapter> extends AppCompatActivity {
             system.addToActiveTasks(item);
         }
         PrefConfig.saveSystem(this, system);
-        Toast.makeText(AddToActiveTasks.this, "Task added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddToActiveTasks.this, "Task(s) added", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
