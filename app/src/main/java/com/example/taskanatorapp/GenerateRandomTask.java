@@ -1,17 +1,25 @@
 package com.example.taskanatorapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -85,23 +93,51 @@ public class GenerateRandomTask extends AppCompatActivity {
         taskList = system.getAllTasks();
         activeTasks = system.getActiveTasks();
         tasksForRandom = new ArrayList<>();
+        ImageView mascotImage = (ImageView) findViewById(R.id.imageViewTaskanatorMascot);
+
+
+        RotateAnimation anim = new RotateAnimation(-4.0f, 4.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        RotateAnimation anim2 = new RotateAnimation(-2.0f, 2.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
+
+//Setup anim with desired properties
+        anim.setInterpolator(new LinearInterpolator());
+        //anim.setRepeatCount(Animation.INFINITE); //Repeat animation indefinitely
+        anim.setRepeatCount(1);
+        anim2.setRepeatMode(1);
+        anim.setDuration(400); //Put desired duration per anim cycle here, in milliseconds
+        anim2.setDuration(300);
+
+//Start animation
+        mascotImage.startAnimation(anim);
+//Later on, use view.setAnimation(null) to stop it.
 
         spinner = (Spinner) findViewById(R.id.spinnerGRT);
 
         Button button = (Button) findViewById(R.id.buttonGoGRT);
         button.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             public void onClick(View v) {
 
                 Intent intent = new Intent(GenerateRandomTask.this, YourRandomTask.class);
-                duration = Integer.parseInt(durationInput.getText().toString());
+                errorView.setText("");
+                mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concept_alpha));
+
                 tasksForRandom.clear();
 
-                if (durationInput.getText() == null || durationInput.getText().length() == 0) {
+                if (durationInput.getText() == null || durationInput.getText().length() == 0 || durationInput.getText().toString().equals("0")) {
                     errorView.setText("The duration must be set to something, either using the bar or the input text box.");
+                    mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concepts_alpha_2__resize_));
+                    mascotImage.startAnimation(anim2);
+                    return;
                 }
                 else {
+                    duration = Integer.parseInt(durationInput.getText().toString());
                     if (taskList.isEmpty()) {
                         errorView.setText("Error: the system task list is empty, cannot generate random task.");
+                        mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concepts_alpha_2__resize_));
+                        mascotImage.startAnimation(anim2);
+                        return;
                     }
                     else if (selectedCategory.equals("All")) {
                         for (Task task : taskList) {
@@ -137,6 +173,8 @@ public class GenerateRandomTask extends AppCompatActivity {
                     }
                     if (tasksForRandom.isEmpty()) {
                         errorView.setText("Error: all tasks available in the system with the desired category and duration are already in the active tasks list or don't exist.");
+                        mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concepts_alpha_2__resize_));
+                        mascotImage.startAnimation(anim2);
                     }
                     else {
                         int randomIndex = random.nextInt(tasksForRandom.size());
