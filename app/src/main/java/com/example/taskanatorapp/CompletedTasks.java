@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -58,6 +59,7 @@ public class CompletedTasks extends AppCompatActivity {
             public void onClick(View v) {
                 system.clearCompletedTasks();
                 PrefConfig.saveSystem(CompletedTasks.this, system);
+                Toast.makeText(CompletedTasks.this, "Task history cleared", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(CompletedTasks.this, MainActivity.class);
                 startActivity(intent);
             }
