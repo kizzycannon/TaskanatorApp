@@ -7,7 +7,38 @@
     android:background="@color/pink"
     tools:context=".SplashActivity">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha="0.05"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="Taskanator"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#CEFFFFFF"
+        android:textSize="200dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.279"
+        app:srcCompat="@drawable/taskanator_concept_alpha" />
+
+    <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/ic_baseline_logo"

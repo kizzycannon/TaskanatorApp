@@ -136,6 +136,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="5dp"
+        android:background="#88FFFFFF"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/red"
