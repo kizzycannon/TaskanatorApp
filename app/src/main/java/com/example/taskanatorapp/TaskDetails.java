@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TaskDetails extends AppCompatActivity {
 
@@ -60,6 +61,7 @@ public class TaskDetails extends AppCompatActivity {
                 //progressBar.addProgressPoints(progressTime);
                 bar.addProgressPoints(progressTime);
                 PrefConfig.saveProgressBar(TaskDetails.this,bar);
+                Toast.makeText(TaskDetails.this, "Task removed from Active Tasks. Your progress is updated!", Toast.LENGTH_SHORT).show();
                 startActivity(backToMain);
             }
         });
@@ -69,6 +71,7 @@ public class TaskDetails extends AppCompatActivity {
             public void onClick(View v) {
                 system.getActiveTasks().remove(taskID);
                 PrefConfig.saveSystem(TaskDetails.this, system);
+                Toast.makeText(TaskDetails.this, "Task removed from Active Tasks", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TaskDetails.this, MainActivity.class);
                 startActivity(intent);
             }

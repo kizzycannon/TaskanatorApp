@@ -50,7 +50,7 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
     public void onBindViewHolder(ManageTasksAdapter.ViewHolder holder, int position){
         CardView cardView = holder.cardView;
         TextView taskTitle = (TextView)cardView.findViewById(R.id.Task_Title);
-        TextView taskCategory = (TextView)cardView.findViewById(R.id.Task_Category);
+        TextView taskCategoryDuration = (TextView)cardView.findViewById(R.id.Task_Category);
         TextView taskDescription = (TextView)cardView.findViewById(R.id.Task_Description);
         ImageView imageView = (ImageView)cardView.findViewById(R.id.imageView);
 
@@ -60,7 +60,7 @@ public class ManageTasksAdapter extends RecyclerView.Adapter<ManageTasksAdapter.
 
 
         taskTitle.setText(currentTask.getTaskName());
-        taskCategory.setText(currentTask.getTaskCategory());
+        taskCategoryDuration.setText(currentTask.getTaskCategory() + " - " + currentTask.getTaskLength() + " minutes");
         taskDescription.setText(currentTask.getTaskDescription());
 
         cardView.setOnClickListener(new View.OnClickListener(){

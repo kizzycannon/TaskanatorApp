@@ -43,7 +43,9 @@ public class AddToActiveTasksAdapter extends RecyclerView.Adapter<AddToActiveTas
         Task currentTask = allTasks.get(position);
         CardView cardView = holder.cardView;
         TextView taskTitle = cardView.findViewById(R.id.Task_Title);
+        TextView taskDuration = cardView.findViewById(R.id.addToActiveTaskDuration);
         taskTitle.setText(currentTask.getTaskName());
+        taskDuration.setText(currentTask.getTaskLength() + " minutes");
 
         holder.setOnClickListener(v -> {
             holder.check.setChecked(!holder.check.isChecked());
@@ -65,6 +67,7 @@ public class AddToActiveTasksAdapter extends RecyclerView.Adapter<AddToActiveTas
         private CardView cardView;
         private CheckBox check;
         private TextView title;
+        private TextView duration;
 
         AdapterView.OnClickListener itemClickListener;
         private ArrayList<Task> checkedTasks = new ArrayList<>();
@@ -76,6 +79,7 @@ public class AddToActiveTasksAdapter extends RecyclerView.Adapter<AddToActiveTas
             check = v.findViewById(R.id.addToActiveCheckBox);
             check.setClickable(false);
             title = v.findViewById(R.id.Task_Title);
+            duration = v.findViewById(R.id.addToActiveTaskDuration);
         }
         public void setOnClickListener(View.OnClickListener onClickListener){
             cardView.setOnClickListener(onClickListener);
