@@ -107,13 +107,14 @@
 
     <Button
         android:id="@+id/buttonGoToCompletedTasks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:onClick="goToAddToCompletedTasks"
         android:text="@string/completed_task_title"
+        app:layout_constraintEnd_toStartOf="@+id/textView15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

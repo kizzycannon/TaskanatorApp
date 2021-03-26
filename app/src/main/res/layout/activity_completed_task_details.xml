@@ -25,27 +25,27 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="1dp"
         android:text="@string/task_details_header"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/CompletedTaskDetailsTaskDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CompletedTaskDetailsTaskName" />
 
     <TextView
         android:id="@+id/CompletedTaskDetailsTaskDescription"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="311dp"
         android:background="#FFFFFF"
         android:text="@string/task_details_default_details"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonBackToActiveCDT"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTaskDurationTitleCTD"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CompletedTaskDetailsHeader" />
 
@@ -61,19 +61,18 @@
 
     <TextView
         android:id="@+id/textViewTaskDurationCTD"
-        android:layout_width="359dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="#FFFFFF"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewCTD"
-        app:layout_constraintEnd_toEndOf="@+id/CompletedTaskDetailsTaskDescription"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/CompletedTaskDetailsTaskDescription"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTaskDurationTitleCTD"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskDurationTitleCTD" />
 
     <Button
         android:id="@+id/buttonBackToCompletedCDT"
@@ -103,6 +102,7 @@
         android:id="@+id/imageViewCTD"
         android:layout_width="110dp"
         android:layout_height="110dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewTaskCategoryCTD"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,23 +114,21 @@
         android:id="@+id/textViewTaskDurationTitleCTD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="10dp"
         android:text="@string/duration_title_CTD"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTaskDurationCTD"
-        app:layout_constraintStart_toStartOf="@+id/textViewTaskDurationCTD"
+        app:layout_constraintStart_toStartOf="@+id/CompletedTaskDetailsTaskDescription"
         app:layout_constraintTop_toBottomOf="@+id/CompletedTaskDetailsTaskDescription" />
 
     <TextView
         android:id="@+id/textViewTaskCategoryTitleCTD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="@string/task_details_category"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imageViewCTD"
-        app:layout_constraintStart_toStartOf="@+id/textViewTaskDurationCTD"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTaskDurationCTD"
         app:layout_constraintVertical_bias="0.119" />
 
