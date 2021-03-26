@@ -55,8 +55,8 @@
 
     <TextView
         android:id="@+id/progressText"
-        android:layout_width="278dp"
-        android:layout_height="55dp"
+        android:layout_width="280dp"
+        android:layout_height="76dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
@@ -126,7 +126,7 @@
         android:layout_marginLeft="5dp"
         android:background="#9995A8F4"
         android:onClick="goToEditProgressBar"
-        app:layout_constraintBottom_toTopOf="@+id/ActiveTasks"
+        app:layout_constraintBottom_toBottomOf="@+id/progressText"
         app:layout_constraintEnd_toEndOf="@+id/ActiveTasks"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/progressText"
@@ -142,10 +142,10 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/progressText"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/progressText" />
 
     <TextView
         android:id="@+id/textView5"
@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:text="Progress"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/progressText"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/imageView2" />

@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
             bar = new SystemProgressBar();
         }
         progbar = (ProgressBar) findViewById(R.id.progressBarMain);
-        progbar.setProgress(bar.returnCurrentProgress());
         progbar.setMax(bar.getProgressCap());
+        progbar.setProgress(bar.returnCurrentProgress());
         progressText = (TextView) findViewById(R.id.progressText);
         progressCompletedText = (TextView) findViewById(R.id.textViewMainTimeCompleted);
         int progressToGo;
