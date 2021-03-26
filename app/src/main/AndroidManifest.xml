@@ -9,19 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskanatorApp">
-        <activity
-            android:name=".CompletedTaskDetails"
-            android:parentActivityName=".CompletedTasks">
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
+            android:name=".CompletedTaskDetails"
+            android:parentActivityName=".CompletedTasks"></activity>
+        <activity
             android:name=".CompletedTasks"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddTask"
             android:parentActivityName=".ManageTasks" />
         <activity
             android:name=".EditProgressBar"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddToActiveTasks"
             android:parentActivityName=".MainActivity" />
@@ -40,13 +46,8 @@
         <activity
             android:name=".TaskDetails"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"/>
+        
     </application>
 
 </manifest>
