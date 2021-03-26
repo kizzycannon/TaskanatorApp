@@ -171,4 +171,12 @@
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/imageView2" />
 
+    <TextView
+        android:id="@+id/textViewMainTimeCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/progressText"
+        app:layout_constraintStart_toStartOf="@+id/progressText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
