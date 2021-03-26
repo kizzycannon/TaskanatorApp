@@ -18,6 +18,11 @@ private EditText newvalue;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_progress_bar);
 
+        bar = PrefConfig.loadProgressBar(this);
+        if (bar == null){
+            bar = new SystemProgressBar();
+        }
+
         progbar = (android.widget.ProgressBar) findViewById(R.id.progressBarPage);
         newvalue = (EditText) findViewById(R.id.editProgress);
         progbar.setProgress(bar.returnCurrentProgress());
@@ -25,10 +30,12 @@ private EditText newvalue;
     public void saveChanges(View view) {
         bar.setCurrentProgress(Integer.valueOf(String.valueOf(newvalue.getText())));
         progbar.setProgress(bar.returnCurrentProgress());
+        PrefConfig.saveProgressBar(this, bar);
     }
 
     public void resetBar (View view){
        progbar.setProgress(0);
         bar.setCurrentProgress(0);
+        PrefConfig.saveProgressBar(this, bar);
     }
 }

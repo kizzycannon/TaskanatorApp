@@ -89,4 +89,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToAddToCompletedTasks(View view){
+        Intent intent = new Intent(this, CompletedTasks.class);
+        startActivity(intent);
+    }
+
+    public void goToEditProgressBar(View view){
+        Intent intent = new Intent(this, EditProgressBar.class);
+        startActivity(intent);
+    }
+
 }

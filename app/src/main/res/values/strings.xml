@@ -46,9 +46,12 @@
 
     <!--Task Details Strings-->
     <string name="task_details_default_task">Default Task</string>
-    <string name="task_details_header">Task Description:</string>
+    <string name="task_details_header">Task Details:</string>
     <string name="task_details_default_details">Default Task Details</string>
     <string name="task_details_task_complete">Mark Task Complete!</string>
+    <string name="task_details_duration">Expected Duration:</string>
+    <string name="task_details_category">Category:</string>
+    <string name="button_task_details_remove_task">Remove From Active Tasks</string>
 
     <!--Task Card Strings-->
     <string name="task_card_task_name">Default Task Name</string>
@@ -83,5 +86,10 @@
         <item>Chores</item>
         <item>Other</item>
     </array>
+
+    <!-- Completed Tasks Strings -->
+    <string name="completed_task_title">Completed Tasks</string>
+    <string name="button_Clear_Completed_Tasks">Clear Completed Task List</string>
+    <string name="button_back_to_main_CT">Back to Active Tasks</string>
 
 </resources>
