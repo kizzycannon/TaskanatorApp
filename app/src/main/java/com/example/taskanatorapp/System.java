@@ -16,8 +16,8 @@ public class System {
 
         //category images
         String[] categoryNames = {"Chores", "Sport", "Leisure", "Studying", "Other"};
-        int[] images = {R.drawable.taskanator_icon___chores, R.drawable.taskanator_icon___sport,
-                R.drawable.taskanator_icon___leisure, R.drawable.taskanator_icon___studying, R.drawable.taskanator_icon___other};
+        int[] images = {R.drawable.taskanator_icon___chores__colour_bg_, R.drawable.taskanator_icon___sport__colour_bg_,
+                R.drawable.taskanator_icon___leisure__colour_bg_, R.drawable.taskanator_icon___studying__color_bg_, R.drawable.taskanator_icon___other__colour_bg_};
 
         iconHashMap = new HashMap<>();
         for (int i = 0; i < categoryNames.length; i++) {
