@@ -8,6 +8,16 @@
     android:orientation="vertical"
     tools:context=".CompletedTasks">
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintEnd_toEndOf="@+id/CompletedTasksTitle"
+        app:layout_constraintTop_toBottomOf="@+id/CompletedTasksTitle"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <TextView
         android:id="@+id/CompletedTasksTitle"
         android:layout_width="236dp"
@@ -87,4 +97,8 @@
         app:layout_constraintBottom_toTopOf="@+id/CompletedTasksrecyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNumTasksCompletedCT" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
 </androidx.constraintlayout.widget.ConstraintLayout>

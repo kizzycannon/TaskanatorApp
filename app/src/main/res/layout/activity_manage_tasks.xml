@@ -8,6 +8,18 @@
     android:background="@drawable/grey_bg_gradient"
     tools:context=".ManageTasks">
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toTopOf="@+id/ManageTasksrecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarGRT"
+        app:layout_constraintStart_toStartOf="@+id/ManageTasksrecyclerView"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <TextView
         android:id="@+id/ManageTasksTitle"
         android:layout_width="wrap_content"
@@ -74,4 +86,9 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonAddTask"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ManageTasksrecyclerView" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

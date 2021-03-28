@@ -107,7 +107,8 @@ public class AddTask extends AppCompatActivity {
         TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
         String title = "Add Task";
         String info = "Adding a task here will create a new task and add it into your manage tasks list.\n\nYou must enter a unique name for the task (max 20 char).\n\nSelect a "
-        + "category for the task.\n\nEnter a description of the task (max 72 char).\n\nSelect an estimated duration for the task (max 99 mins).";
+        + "category for the task.\n\nEnter a description of the task (max 72 char).\n\nSelect an estimated duration for the task (max 99 mins).\n\nSetting the 'add task to active "
+        + "tasks' switch to on will also add the tasks straight to your active tasks list.";
         popupTitle.setText(title);
         popupInfo.setText(info);
         Button closePopup = (Button) findViewById(R.id.buttonPopupClose);

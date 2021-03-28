@@ -159,16 +159,6 @@
         app:layout_constraintEnd_toEndOf="@+id/seekBarGRT"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
-    <view
-        android:id="@+id/view2"
-        class="androidx.appcompat.widget.AppCompatImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <include
         layout="@layout/popup"
         android:visibility="invisible"></include>

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -140,6 +141,36 @@ public class YourRandomTask extends AppCompatActivity {
             public void onClick(View v) {
                 Intent goBack = new Intent(YourRandomTask.this, MainActivity.class);
                 startActivity(goBack);
+            }
+        });
+    }
+
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        Button acceptTask = (Button) findViewById(R.id.buttonAcceptTaskYRT);
+        Button newTask = (Button) findViewById(R.id.buttonPickAgainYRT);
+        Button back = (Button) findViewById(R.id.buttonBackToMainYRT);
+        acceptTask.setVisibility(View.INVISIBLE);
+        newTask.setVisibility(View.INVISIBLE);
+        back.setVisibility(View.INVISIBLE);
+        String title = "Your Random Task";
+        String info = "Your randomly generated task will appear here.\n\n" +
+                "If you are happy with the task generated, pressing the 'accept task' button will add it to your active tasks list so that you can work on it.\n\n" +
+                "If you want a different task simply click the 'no thanks, pick again' button and if there are enough tasks with the right criteria you'll get a newly picked task.\n\n" +
+                "If you change your mind about adding a new task you can press 'back to active tasks' to return to the main page.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
+                acceptTask.setVisibility(View.VISIBLE);
+                newTask.setVisibility(View.VISIBLE);
+                back.setVisibility(View.VISIBLE);
             }
         });
     }
