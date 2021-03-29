@@ -7,6 +7,19 @@
     android:background="@drawable/grey_bg_gradient"
     tools:context=".YourRandomTask">
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPickAgainYRT"
+        app:layout_constraintStart_toEndOf="@+id/buttonPickAgainYRT"
+        app:layout_constraintTop_toTopOf="@+id/buttonPickAgainYRT"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <TextView
         android:id="@+id/textViewYourRandomTaskTitle"
         android:layout_width="wrap_content"
@@ -90,13 +103,14 @@
 
     <TextView
         android:id="@+id/textViewErrorYRT"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="16dp"
+        android:background="#88FFFFFF"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/red"
@@ -139,5 +153,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCategoryYRT" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

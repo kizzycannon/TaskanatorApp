@@ -7,6 +7,27 @@
     android:background="@drawable/grey_bg_gradient"
     tools:context=".GenerateRandomTask">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/taskanator_speech_bubble__trim_" />
+
+    <ImageView
+        android:id="@+id/imageViewTaskanatorMascot"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:layout_constraintBottom_toTopOf="@+id/TaskDetailsTaskDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenerateRandomTaskTitle"
+        app:srcCompat="@drawable/taskanator_concept_alpha" />
+
     <TextView
         android:id="@+id/textViewGenerateRandomTaskTitle"
         android:layout_width="wrap_content"
@@ -28,55 +49,55 @@
         android:progress="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543" />
 
     <TextView
         android:id="@+id/TaskDetailsTaskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
         android:text="@string/info_I_need_to_fill"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarGRT"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberGRT"
         app:layout_constraintStart_toStartOf="@+id/seekBarGRT" />
 
     <TextView
         android:id="@+id/textViewCategoryGRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:text="@string/info_category"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/spinnerGRT"
-        app:layout_constraintStart_toStartOf="@+id/spinnerGRT" />
+        app:layout_constraintStart_toStartOf="@+id/spinnerGRT"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarGRT" />
 
     <Spinner
         android:id="@+id/spinnerGRT"
         android:layout_width="326dp"
         android:layout_height="39dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:background="#FFFFFF"
         android:entries="@array/categories"
         android:spinnerMode="dropdown"
         android:verticalScrollbarPosition="defaultPosition"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarGRT" />
 
     <EditText
         android:id="@+id/editTextNumberGRT"
         android:layout_width="56dp"
-        android:layout_height="42dp"
+        android:layout_height="35dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:text="@string/hint_minutes"
         android:inputType="number"
         android:maxLength="2"
+        android:text="@string/hint_minutes"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewMinsGRT"
         app:layout_constraintStart_toStartOf="@+id/seekBarGRT" />
 
@@ -97,9 +118,10 @@
         android:id="@+id/buttonGoGRT"
         android:layout_width="171dp"
         android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:text="@string/button_go"
         app:backgroundTint="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerGRT" />
@@ -113,16 +135,32 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:layout_marginBottom="5dp"
+        android:background="#88FFFFFF"
         android:gravity="center"
+        android:text="TextView"
         android:textColor="@color/red"
         android:textSize="18sp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/TaskDetailsTaskDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGenerateRandomTaskTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenerateRandomTaskTitle"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarGRT"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarGRT"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

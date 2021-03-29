@@ -7,6 +7,17 @@
     android:background="@drawable/grey_bg_gradient"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar7"
+        android:layout_width="33dp"
+        android:layout_height="29dp"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toTopOf="@+id/ActiveTasks"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
@@ -36,9 +47,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressText" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/AddTask"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -47,11 +58,14 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="goToAddToActiveTasks"
-        android:text="Add"
+        android:src="@drawable/ic_baseline_add"
+        app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/ActiveTasks" />
+        app:layout_constraintTop_toBottomOf="@+id/ActiveTasks"
+        app:maxImageSize="32dp"
+        app:tint="@android:color/white" />
 
     <TextView
         android:id="@+id/progressText"
@@ -167,7 +181,8 @@
         android:layout_height="wrap_content"
         android:text="Progress"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/progressText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/imageView2" />
@@ -179,5 +194,9 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/progressText"
         app:layout_constraintStart_toStartOf="@+id/progressText" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

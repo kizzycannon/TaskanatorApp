@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/grey_bg_gradient">
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddTask"
+        app:layout_constraintStart_toEndOf="@+id/AddTaskAddToActiveTasksSwitch"
+        app:layout_constraintTop_toTopOf="@+id/AddTaskAddToActiveTasksSwitch"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <TextView
         android:id="@+id/editTaskHeader"
         android:layout_width="wrap_content"
@@ -40,9 +54,9 @@
         android:layout_marginBottom="16dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:maxLength="20"
         android:hint="@string/hint_enter_task_name"
         android:inputType="textPersonName"
+        android:maxLength="20"
         app:layout_constraintBottom_toTopOf="@+id/addTaskNameCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/addTaskNameTitle"
@@ -91,9 +105,9 @@
         android:layout_marginBottom="16dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:maxLength="72"
         android:hint="@string/hint_enter_details"
         android:inputType="textPersonName"
+        android:maxLength="72"
         app:layout_constraintBottom_toTopOf="@+id/editTaskDurationTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/addTaskNameTitle"
@@ -145,5 +159,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddTaskAddToActiveTasksSwitch" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,18 @@
     android:background="@drawable/grey_bg_gradient"
     tools:context=".ManageTasks">
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toTopOf="@+id/ManageTasksrecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarGRT"
+        app:layout_constraintStart_toStartOf="@+id/ManageTasksrecyclerView"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <TextView
         android:id="@+id/ManageTasksTitle"
         android:layout_width="wrap_content"
@@ -32,27 +44,31 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/buttonClearCompletedTasks"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ManageTasksTitle" />
 
-    <Button
-        android:id="@+id/buttonClearCompletedTasks"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonAddTask"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
+        app:tint="@android:color/white"
+        app:maxImageSize="32dp"
         android:onClick="buttonAddTask"
-        android:text="@string/add_new_task"
+        android:src="@drawable/ic_baseline_add"
+        app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonBackToActiveCT"
-        app:layout_constraintTop_toBottomOf="@+id/ManageTasksrecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/ManageTasksrecyclerView"
+         />
 
     <Button
         android:id="@+id/buttonBackToActiveCT"
@@ -67,7 +83,12 @@
         android:onClick="buttonActiveTasks"
         android:text="@string/back_to_active_tasks"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonClearCompletedTasks"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddTask"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ManageTasksrecyclerView" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

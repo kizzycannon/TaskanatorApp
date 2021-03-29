@@ -8,10 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -89,5 +88,28 @@ public class AddToActiveTasks<adapter> extends AppCompatActivity {
     public void buttonManageTasks(View view) {
         Intent intent = new Intent(this, ManageTasks.class);
         startActivity(intent);
+    }
+
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        Button addToTasks = (Button) findViewById(R.id.button_addtask);
+        addToTasks.setAlpha((float) 0.3);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        String title = "Add To Active Tasks";
+        String info = "Select one or more tasks from your app's task list to add to your currently active tasks list by checking all tasks you wish to add then pressing the 'add to my tasks!' button.\n\n " +
+                "Clicking the 'manage tasks' button will take you to a full list of tasks that have been added to your app's task list where you can edit or add more.\n\nClicking on 'generate random task' will "
+        + "allow you to randomly select from your available tasks to add to your active tasks list so you can start working on them.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
+                addToTasks.setAlpha((float) 1);
+            }
+        });
     }
 }

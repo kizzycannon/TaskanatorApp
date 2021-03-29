@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -96,6 +97,25 @@ public class AddTask extends AppCompatActivity {
                 Toast.makeText(AddTask.this, "Task added", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AddTask.this, ManageTasks.class);
                 startActivity(intent);
+            }
+        });
+    }
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        String title = "Add Task";
+        String info = "Adding a task here will create a new task and add it into your manage tasks list.\n\nYou must enter a unique name for the task (max 20 char).\n\nSelect a "
+        + "category for the task.\n\nEnter a description of the task (max 72 char).\n\nSelect an estimated duration for the task (max 99 mins).\n\nSetting the 'add task to active "
+        + "tasks' switch to on will also add the tasks straight to your active tasks list.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
             }
         });
     }
