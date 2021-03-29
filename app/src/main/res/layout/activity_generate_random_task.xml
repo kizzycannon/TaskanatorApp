@@ -149,4 +149,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewGenerateRandomTaskTitle"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarGRT"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarGRT"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"></include>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

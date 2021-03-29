@@ -11,8 +11,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
@@ -20,7 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -66,30 +64,6 @@ public class GenerateRandomTask extends AppCompatActivity {
 
         system = PrefConfig.loadSystem(this);
 
-
-        /** test data
-        Task task1 = new Task("Task name 1", "Leisure", "description 1", 20);
-        Task task2 = new Task("Task name 2", "Sport", "description 2", 60);
-        Task task3 = new Task("Task name 3", "Other", "description 3", 10);
-        taskList = new ArrayList<>();
-        system.createNewTask("Task name 1", "Leisure", "description 1", 20);
-        system.createNewTask("Task name 2", "Sport", "description 2", 60);
-        system.createNewTask("Task name 3", "Other", "description 3", 10);
-
-        //taskList.add(task1);
-        //taskList.add(task2);
-        //taskList.add(task3);
-
-        //activeTasks = new ArrayList<>();
-        //system.addToActiveTasks(task1);
-        /** test data ^ */
-
-        //activeTasks = system.getActiveTasks();
-
-        //taskList = MainActivity.getSystemTasks();
-        //activeTasks = MainActivity.getActiveTasks();
-
-
         taskList = system.getAllTasks();
         activeTasks = system.getActiveTasks();
         tasksForRandom = new ArrayList<>();
@@ -130,21 +104,19 @@ public class GenerateRandomTask extends AppCompatActivity {
                     mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concepts_alpha_2__resize_));
                     mascotImage.startAnimation(anim2);
                     return;
-                }
-                else {
+                } else {
                     duration = Integer.parseInt(durationInput.getText().toString());
                     if (taskList.isEmpty()) {
                         errorView.setText("Error: the system task list is empty, cannot generate random task.");
                         mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concepts_alpha_2__resize_));
                         mascotImage.startAnimation(anim2);
                         return;
-                    }
-                    else if (selectedCategory.equals("All")) {
+                    } else if (selectedCategory.equals("All")) {
                         for (Task task : taskList) {
                             boolean isInActiveTasks = false;
                             for (Task taskActive : activeTasks) {
                                 if (taskActive.getTaskName().equals(task.getTaskName()) && taskActive.getTaskCategory().equals(task.getTaskCategory())
-                                && taskActive.getTaskDescription().equals(task.getTaskDescription())) {
+                                        && taskActive.getTaskDescription().equals(task.getTaskDescription())) {
                                     isInActiveTasks = true;
                                     break;
                                 }
@@ -153,8 +125,7 @@ public class GenerateRandomTask extends AppCompatActivity {
                                 tasksForRandom.add(task);
                             }
                         }
-                    }
-                    else {
+                    } else {
                         for (Task task : taskList) {
                             boolean isInActiveTasks = false;
                             for (Task taskActive : activeTasks) {
@@ -175,8 +146,7 @@ public class GenerateRandomTask extends AppCompatActivity {
                         errorView.setText("Error: all tasks available in the system with the desired category and duration are already in the active tasks list or don't exist.");
                         mascotImage.setImageDrawable(getDrawable(R.drawable.taskanator_concepts_alpha_2__resize_));
                         mascotImage.startAnimation(anim2);
-                    }
-                    else {
+                    } else {
                         int randomIndex = random.nextInt(tasksForRandom.size());
                         Task randomTask = tasksForRandom.get(randomIndex);
                         String indexInSystemTasks = String.valueOf(taskList.indexOf(randomTask));
@@ -196,9 +166,9 @@ public class GenerateRandomTask extends AppCompatActivity {
                         }
                         intent.putStringArrayListExtra(INTEGER_ARRAY, indexRandomArray);
                         startActivity(intent);
-                        }
                     }
                 }
+            }
 
         });
 
@@ -228,6 +198,7 @@ public class GenerateRandomTask extends AppCompatActivity {
 
         seekBarInstanceVariable.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChange = 0;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChange = progress;
@@ -257,14 +228,12 @@ public class GenerateRandomTask extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (durationInput.getText().length() == 0 || durationInput.getText() == null) {
                     seekBarInstanceVariable.setProgress(0);
-                }
-                else {
+                } else {
                     seekBarInstanceVariable.setProgress(Integer.parseInt(durationInput.getText().toString()));
                 }
             }
         });
     }
-
 
 
     /**
@@ -310,5 +279,24 @@ public class GenerateRandomTask extends AppCompatActivity {
      */
     public ArrayList<Task> getTasksForRandom() {
         return tasksForRandom;
+    }
+
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        String title = "Random Task Generator";
+        String info = "Select a duration of up to 99 minutes using the text input box or the slider and select a category to " +
+                "generate from.\n\nA random task will be selected from your existing tasks in the app which are not already in your active tasks list.\n\nGo to manage tasks to add to/edit these.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 }

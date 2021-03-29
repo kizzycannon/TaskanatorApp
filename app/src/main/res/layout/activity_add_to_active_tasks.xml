@@ -2,11 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layerActiveTasksPopup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/grey_bg_gradient"
+    android:orientation="vertical"
     tools:context=".AddToActiveTasks">
+
+    <ImageButton
+        android:id="@+id/infoButtonGRTbar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:onClick="showPopupView"
+        android:tint="#49ACFB"
+        app:layout_constraintBottom_toBottomOf="@+id/button_random"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_random"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 
     <TextView
         android:id="@+id/addActiveTaskTitle"
@@ -62,6 +78,7 @@
         android:id="@+id/button_random"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginBottom="36dp"
         android:onClick="buttonGenerateRandomTasksActivity"
         android:text="@string/button_generateRandomTask"
@@ -69,4 +86,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        layout="@layout/popup"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></include>
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

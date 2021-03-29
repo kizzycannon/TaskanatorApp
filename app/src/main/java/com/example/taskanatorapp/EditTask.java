@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -149,6 +149,26 @@ public class EditTask extends AppCompatActivity {
 
                 Intent intent = new Intent(EditTask.this, ManageTasks.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        String title = "Edit Task";
+        String info = "You can change the details of the task here. Make sure not to leave any fields blank and to keep the task name unique.\n\n"
+                + "Be sure to press the 'save changes' button before leaving the page or any updates made to the task will be lost.\n\nThe task can "
+        + "be deleted from your overall app task list and active task list with the 'delete task' button.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
             }
         });
     }

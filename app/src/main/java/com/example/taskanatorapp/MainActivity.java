@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.content.Intent;
 import android.os.Build;
@@ -102,6 +104,34 @@ public class MainActivity extends AppCompatActivity {
     public void goToEditProgressBar(View view){
         Intent intent = new Intent(this, EditProgressBar.class);
         startActivity(intent);
+    }
+
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        Button completedTasks = (Button) findViewById(R.id.buttonGoToCompletedTasks);
+        completedTasks.setVisibility(View.INVISIBLE);
+        popupTitle.setTextSize(18);
+        popupInfo.setTextSize(14);
+        String title = "Active Tasks";
+        String info = "This is the Taskanator App!\n\nYour active tasks page is the main page of the app. Here you can click on a "
+        + "task in your active task list to see more details and mark it complete.\n\nThe 'completed tasks' button will take you to a list of all tasks you have previously completed.\n\n"
+                + "The progress bar shows how much time you've spent on completed active tasks compared with the goal you set yourself. The pencil icon will allow you to set the time goal you wish to achieve with the tasks you complete and to reset the progress bar.\n\n"
+                + "" +
+                "The 'manage' button will let you manage your overall task list in the app. Here you'll be able to create new tasks, edit existing ones and delete unwanted tasks.\n\n"
+                + "The '+' button takes you to the 'add to active tasks' page, where you can select tasks from the app to add to your currently active list and go to generate random task.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
+                completedTasks.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
 }

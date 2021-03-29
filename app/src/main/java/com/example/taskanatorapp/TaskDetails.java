@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,6 +75,33 @@ public class TaskDetails extends AppCompatActivity {
                 Toast.makeText(TaskDetails.this, "Task removed from Active Tasks", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TaskDetails.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public void showPopupView(View view) {
+        LinearLayout popupLayout = findViewById(R.id.popup);
+        popupLayout.setVisibility(View.VISIBLE);
+        TextView popupTitle = (TextView) findViewById(R.id.textViewPopupTitle);
+        TextView popupInfo = (TextView) findViewById(R.id.textViewPopupInfo);
+        Button markComplete = (Button) findViewById(R.id.TaskDetailsCompleteTask);
+        Button remove = (Button) findViewById(R.id.buttonRemoveTaskTD);
+        markComplete.setVisibility(View.INVISIBLE);
+        remove.setVisibility(View.INVISIBLE);
+        String title = "Task Details";
+        String info = "In task details you can view the information about any of your currently active tasks after clicking on them from the active tasks page.\n\n" +
+                "This is where you can mark your task as finished with the 'mark task complete!' button. It will then be removed from your active task list (but remain in the manage tasks list) " +
+                "and be added to the completed tasks list which can be accessed from the main page. The progress bar on the main page will update by the amount of time the task is worth.\n\n The 'remove from active tasks' button will remove the task from your active task list without " +
+                "updating the progress bar or adding to the completed tasks list.";
+        popupTitle.setText(title);
+        popupInfo.setText(info);
+        Button closePopup = (Button) findViewById(R.id.buttonPopupClose);
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupLayout.setVisibility(View.INVISIBLE);
+                markComplete.setVisibility(View.VISIBLE);
+                remove.setVisibility(View.VISIBLE);
             }
         });
     }
