@@ -68,6 +68,7 @@
         android:id="@+id/TaskDetailsCompleteTask"
         android:layout_width="235dp"
         android:layout_height="48dp"
+        android:layout_marginTop="48dp"
         android:text="@string/task_details_task_complete"
         app:layout_constraintEnd_toEndOf="@+id/textViewTaskCategoryTD"
         app:layout_constraintStart_toStartOf="@+id/textViewTaskCategoryTD"
@@ -98,7 +99,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/TaskDetailsCompleteTask"
         app:layout_constraintStart_toStartOf="@+id/TaskDetailsCompleteTask"
-        app:layout_constraintTop_toBottomOf="@+id/TaskDetailsCompleteTask" />
+        app:layout_constraintTop_toBottomOf="@+id/TaskDetailsCompleteTask"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewTaskCategoryTD"
